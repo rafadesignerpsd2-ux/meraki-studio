@@ -70,6 +70,8 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Accessibility Skip Link -->
+  <a href="#hero" class="skip-link">Pular para o conteúdo principal</a>
 
   <!-- Premium Noise overlay -->
   <div class="noise-overlay" aria-hidden="true"></div>
@@ -116,13 +118,49 @@
         <a href="#contato" class="navbar__link" role="menuitem">Contato</a>
       </div>
 
-      <!-- Action Button -->
-      <a href="https://api.whatsapp.com/send?phone=5511979637036&text=Ol%C3%A1%20Rafael,%20tudo%20bem?%20Vim%20do%20seu%20site%20e%20preciso%20tirar%20algumas%20d%C3%BAvidas..." class="btn navbar__cta" id="btn-navbar-proposta" target="_blank" rel="noopener noreferrer">
-        Solicitar proposta
-      </a>
+      <!-- Action Button & Hamburger -->
+      <div class="navbar__actions">
+        <a href="https://api.whatsapp.com/send?phone=5511979637036&text=Ol%C3%A1%20Rafael,%20tudo%20bem?%20Vim%20do%20seu%20site%20e%20preciso%20tirar%20algumas%20d%C3%BAvidas..." class="btn navbar__cta" id="btn-navbar-proposta" target="_blank" rel="noopener noreferrer">
+          Solicitar proposta
+        </a>
+        <button class="navbar__hamburger" id="navbar-hamburger" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mobile-menu">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
 
     </div>
   </nav>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Menu de navegação mobile">
+    <div class="mobile-menu__inner">
+      <div class="mobile-menu__header">
+        <span class="mobile-menu__title">Navegação</span>
+        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Fechar menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-menu__links">
+        <a href="#trabalho" class="mobile-menu__link">Trabalhos</a>
+        <a href="#servicos" class="mobile-menu__link">Serviços</a>
+        <a href="#depoimentos" class="mobile-menu__link">Depoimentos</a>
+        <a href="#sobre" class="mobile-menu__link">Sobre</a>
+        <a href="#contato" class="mobile-menu__link">Contato</a>
+      </div>
+      <div class="mobile-menu__footer">
+        <a href="https://api.whatsapp.com/send?phone=5511979637036&text=Ol%C3%A1%20Rafael,%20tudo%20bem?%20Vim%20do%20seu%20site%20e%20preciso%20tirar%20algumas%20d%C3%BAvidas..." class="btn btn--primary mobile-menu__cta" target="_blank" rel="noopener noreferrer">
+          Falar no WhatsApp
+        </a>
+        <button class="btn btn--outline mobile-menu__email-btn" id="btn-open-modal-mobile">
+          Enviar E-mail / Briefing
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- ============================================================
        HERO SECTION
@@ -714,7 +752,66 @@
 
   </footer>
 
+  <!-- Direct Contact / Briefing Modal -->
+  <div class="modal" id="contact-modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal__backdrop" id="modal-backdrop"></div>
+    <div class="modal__content">
+      <button class="modal__close" id="modal-close" aria-label="Fechar formulário">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="modal__header">
+        <span class="modal__badge">ORÇAMENTO DIRETO</span>
+        <h3 class="modal__title" id="modal-title">Solicite uma proposta personalizada</h3>
+        <p class="modal__subtitle">Preencha os detalhes do seu projeto. Retornamos em até 24 horas úteis.</p>
+      </div>
+      <form class="modal__form" id="contact-form" action="https://formsubmit.co/contato@merakistudio.com.br" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Novo Orçamento — Meraki Studio Website">
+        <div class="form-group">
+          <label for="form-name">Seu Nome *</label>
+          <input type="text" id="form-name" name="nome" placeholder="Ex: Gabriel Silva" required>
+        </div>
+        <div class="form-group">
+          <label for="form-email">Seu E-mail Profissional *</label>
+          <input type="email" id="form-email" name="email" placeholder="nome@suaempresa.com.br" required>
+        </div>
+        <div class="form-group">
+          <label for="form-service">Serviço de Interesse</label>
+          <select id="form-service" name="servico">
+            <option value="Website Institucional / Landing Page">Website Institucional / Landing Page</option>
+            <option value="Redesign Completo">Redesign Completo</option>
+            <option value="UI Design & Prototipagem">UI Design & Prototipagem</option>
+            <option value="Design Gráfico & Social Media">Design Gráfico & Social Media</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="form-message">Conte-nos sobre o seu projeto *</label>
+          <textarea id="form-message" name="mensagem" rows="4" placeholder="Qual o objetivo principal do seu site? Qual o prazo estimado?" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary modal__submit" id="btn-submit-form">
+          Enviar solicitação de proposta
+        </button>
+      </form>
+      <div class="modal__feedback" id="form-feedback" aria-live="polite" style="display:none;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#4CAF6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="22 4 12 14.01 9 11.01" stroke="#4CAF6F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h4>Solicitação enviada com sucesso!</h4>
+        <p>Obrigado! Entraremos em contato com você o mais breve possível.</p>
+      </div>
+    </div>
+  </div>
 
+  <!-- Floating Mobile WhatsApp CTA -->
+  <a href="https://api.whatsapp.com/send?phone=5511979637036&text=Ol%C3%A1%20Rafael,%20tudo%20bem?%20Vim%20do%20seu%20site%20e%20preciso%20tirar%20algumas%20d%C3%BAvidas..." class="wpp-float" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp">
+    <span class="wpp-float__pulse"></span>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5031 3.48504C18.2473 1.23872 15.2471 0.00112707 12.0504 0C5.4634 0 0.102533 5.33065 0.100267 11.883C0.0991333 13.9776 0.649733 16.0221 1.69547 17.8239L0 23.9825L6.33493 22.33C8.0802 23.2771 10.0455 23.7756 12.0453 23.7762H12.0504C18.6363 23.7762 23.9977 18.445 24 11.8927C24.0011 8.7171 22.7595 5.73182 20.5031 3.48557V3.48504ZM12.0504 21.7693H12.0464C10.2644 21.7688 8.51627 21.2924 6.991 20.3926L6.62833 20.1784L2.86893 21.159L3.87227 17.5139L3.63613 17.1401C2.642 15.5674 2.1166 13.7497 2.11773 11.8836C2.12007 6.43783 6.57553 2.00692 12.0545 2.00692C14.7073 2.00804 17.201 3.03653 19.0763 4.90382C20.9517 6.77059 21.9837 9.25273 21.9825 11.8915C21.9802 17.3379 17.5247 21.7688 12.0504 21.7688V21.7693ZM17.4983 14.372C17.1998 14.2232 15.7319 13.5052 15.4579 13.4061C15.1841 13.3069 14.9853 13.2574 14.7864 13.5548C14.5876 13.8523 14.0152 14.5213 13.841 14.719C13.6668 14.9173 13.4926 14.9418 13.1941 14.793C12.8956 14.6443 11.9335 14.3309 10.7927 13.3195C9.9052 12.532 9.3058 11.5599 9.13167 11.2624C8.95747 10.965 9.11333 10.8043 9.26227 10.6567C9.39633 10.5234 9.5608 10.3097 9.71033 10.1365C9.85993 9.96325 9.9092 9.83907 10.0089 9.6413C10.1086 9.44301 10.0587 9.26983 9.98427 9.12106C9.90973 8.97235 9.31273 7.51074 9.06347 6.91644C8.82107 6.33752 8.57473 6.41615 8.39193 6.40648C8.21773 6.39786 8.01893 6.3962 7.81953 6.3962C7.62013 6.3962 7.29693 6.47032 7.02307 6.76774C6.7492 7.06515 5.97793 7.78369 5.97793 9.24471C5.97793 10.7057 7.04773 12.1183 7.19727 12.3166C7.3468 12.5149 9.30293 15.5139 12.2979 16.8005C13.0102 17.1065 13.5665 17.2894 14.0003 17.4262C14.7154 17.6524 15.3663 17.6205 15.8808 17.5441C16.4544 17.4587 17.6473 16.8256 17.896 16.1321C18.1447 15.4386 18.1447 14.8437 18.0702 14.7201C17.9957 14.5964 17.7963 14.5218 17.4978 14.3731L17.4983 14.372Z" fill="white"/>
+    </svg>
+  </a>
 
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
   <script src="main.js"></script>

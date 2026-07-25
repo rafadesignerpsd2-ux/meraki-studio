@@ -592,21 +592,96 @@ void main() {
   }, { passive: true });
 })();
 
-// ── Conversion Event Tracking Helper (GA4 / Meta Pixel) ──────
+// ── Mobile Menu Drawer ───────────────────────────────────────
 (function () {
-  document.querySelectorAll('a[href*="api.whatsapp.com"], a[href*="wa.me"]').forEach(button => {
-    button.addEventListener('click', () => {
-      // Google Analytics GA4 Event Trigger
-      if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {
-          'event_category': 'WhatsApp CTA',
-          'event_label': button.getAttribute('aria-label') || 'WhatsApp Click'
-        });
-      }
-      // Meta Pixel Event Trigger
-      if (typeof fbq === 'function') {
-        fbq('track', 'Contact', { content_name: 'WhatsApp CTA Click' });
-      }
-    });
-  });
+  const hamburger = document.getElementById('navbar-hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const links = document.querySelectorAll('.mobile-menu__link');
+  if (!hamburger || !mobileMenu) return;
+
+  function openMenu() {
+    mobileMenu.classList.add('active');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove('active');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  links.forEach(link => link.addEventListener('click', closeMenu));
 })();
+
+// ── Contact / Briefing Modal ─────────────────────────────────
+(function () {
+  const modal = document.getElementById('contact-modal');
+  const backdrop = document.getElementById('modal-backdrop');
+  const closeBtn = document.getElementById('modal-close');
+  const openMobileBtn = document.getElementById('btn-open-modal-mobile');
+  const form = document.getElementById('contact-form');
+  const feedback = document.getElementById('form-feedback');
+  if (!modal) return;
+
+  function openModal() {
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (openMobileBtn) {
+    openMobileBtn.addEventListener('click', () => {
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu) {
+        mobileMenu.classList.remove('active');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      }
+      openModal();
+    });
+  }
+
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('btn-submit-form');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+      }
+      
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        form.style.display = 'none';
+        if (feedback) feedback.style.display = 'flex';
+      }).catch(err => {
+        form.style.display = 'none';
+        if (feedback) feedback.style.display = 'flex';
+      });
+    });
+  }
+})();
+
