@@ -678,3 +678,71 @@ void main() {
   }
 })();
 
+// ── Image Lightbox (Tap to Zoom) ─────────────────────────────
+(function () {
+  const images = document.querySelectorAll('.proj-content__img');
+  if (!images.length) return;
+
+  // Create lightbox markup programmatically if it doesn't exist
+  let lightbox = document.getElementById('image-lightbox');
+  if (!lightbox) {
+    lightbox = document.createElement('div');
+    lightbox.id = 'image-lightbox';
+    lightbox.className = 'image-lightbox';
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-label', 'Visualização de imagem expandida');
+    lightbox.innerHTML = `
+      <div class="image-lightbox__content">
+        <button class="image-lightbox__close" id="image-lightbox-close" aria-label="Fechar visualização">×</button>
+        <img class="image-lightbox__img" id="image-lightbox-img" src="" alt="Imagem expandida" />
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+  }
+
+  const lightboxImg = document.getElementById('image-lightbox-img');
+  const closeBtn = document.getElementById('image-lightbox-close');
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || 'Imagem expandida';
+    lightbox.classList.add('image-lightbox--active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('image-lightbox--active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    // Clear src after fade transition ends to avoid flash next time
+    setTimeout(() => {
+      if (!lightbox.classList.contains('image-lightbox--active')) {
+        lightboxImg.src = '';
+      }
+    }, 400);
+  }
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      openLightbox(img.src, img.alt);
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    // Close if click is outside the image
+    if (e.target === lightbox || e.target.classList.contains('image-lightbox__content')) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('image-lightbox--active')) {
+      closeLightbox();
+    }
+  });
+})();
+
+
