@@ -1240,6 +1240,9 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 32px;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 /* --- Social icons row --- */
@@ -1247,12 +1250,15 @@
   display: flex;
   gap: 12px;
   align-items: center;
+  flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
 /* Social links reuse .tool-icon — just override cursor */
 .footer__social-link {
   text-decoration: none;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 /* --- Terms column --- */
@@ -1261,6 +1267,7 @@
   flex-direction: column;
   gap: 8px;
   align-items: flex-start;
+  flex-shrink: 0;
 }
 
 .footer__terms-label {
@@ -1270,12 +1277,15 @@
   line-height: 24px;
   letter-spacing: 0.32px;
   color: #A0A0A0;
+  white-space: nowrap;
 }
 
 .footer__terms-links {
   display: flex;
-  gap: 10px;
+  gap: 16px;
   align-items: center;
+  flex-wrap: wrap;
+  white-space: nowrap;
 }
 
 .footer__terms-link {
@@ -1286,6 +1296,7 @@
   letter-spacing: 0.32px;
   color: #555555;
   text-decoration: none;
+  white-space: nowrap;
   transition: color var(--transition-fast);
 }
 
