@@ -84,7 +84,7 @@ uniform float u_edgeDisp;
 uniform vec4  u_colors[8];
 uniform int   u_colors_length;
 
-const int SAMPLES = 8;
+const int SAMPLES = 4;
 const float EPHEMERAL_DRIP = 1.0;
 
 // === PCG hash - https://www.jcgt.org/published/0009/03/02/
@@ -312,7 +312,8 @@ void main() {
   });
 
   function resize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    // Capping DPR at 1.0 for background canvas to avoid layout blocking and GPU bottleneck
+    const dpr = 1.0;
     canvas.width = canvas.clientWidth * dpr;
     canvas.height = canvas.clientHeight * dpr;
     gl.viewport(0, 0, canvas.width, canvas.height);
