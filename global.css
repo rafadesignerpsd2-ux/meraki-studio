@@ -297,19 +297,14 @@
   padding: 0;
 }
 
-html {
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
-}
-
+html,
 body {
   font-family: var(--font-body);
   font-size: var(--text-body);
   font-weight: var(--font-weight-regular);
   line-height: var(--leading-body);
   color: var(--color-text-primary);
-  background-color: var(--color-bg-primary);
+  background-color: #0A0A0B !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
