@@ -74,7 +74,7 @@ uniform float u_edgeDisp;
 uniform vec4  u_colors[8];
 uniform int   u_colors_length;
 
-const int SAMPLES = 2;
+const int SAMPLES = 4;
 const float EPHEMERAL_DRIP = 1.0;
 
 // === PCG hash - https://www.jcgt.org/published/0009/03/02/
@@ -317,20 +317,11 @@ void main() {
 
   const start = performance.now();
   let isVisible = true;
-  let lastRender = 0;
-
-  function render(now) {
+  function render() {
     if (!isVisible || document.hidden) {
       animId = null;
       return;
     }
-
-    animId = requestAnimationFrame(render);
-
-    if (now && lastRender && (now - lastRender < 32)) {
-      return;
-    }
-    lastRender = now || performance.now();
 
     const t = (performance.now() - start) / 1000;
 
@@ -349,6 +340,7 @@ void main() {
     gl.uniform4fv(loc.colors, flatColors);
 
     gl.drawArrays(gl.TRIANGLES, 0, 6);
+    animId = requestAnimationFrame(render);
   }
 
   function startAnim() {
