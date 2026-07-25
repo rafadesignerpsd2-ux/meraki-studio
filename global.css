@@ -1,0 +1,451 @@
+/* ============================================================
+   MERAKI STUDIO — GLOBAL DESIGN SYSTEM
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   FONTS — LOCAL @font-face declarations
+   Clash Display  → headings
+   Satoshi        → body text
+   Files located in ./fonts/
+   ------------------------------------------------------------ */
+
+/* Clash Display */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('./fonts/ClashDisplay-Extralight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('./fonts/ClashDisplay-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('./fonts/ClashDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('./fonts/ClashDisplay-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('./fonts/ClashDisplay-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('./fonts/ClashDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('./fonts/ClashDisplay-Variable.woff2') format('woff2');
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Satoshi */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-MediumItalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Variable.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-VariableItalic.woff2') format('woff2');
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES
+   ============================================================ */
+:root {
+
+  /* ----------------------------------------------------------
+     COLOR — GRAY SCALE
+     ---------------------------------------------------------- */
+  --color-white:     #FFFFFF; /* rgb(255, 255, 255) | hsl(0, 0, 100)  */
+  --color-gray-50:   #E5E5E5; /* rgb(229, 229, 229) | hsl(0, 0, 90)   */
+  --color-gray-100:  #B8B8B8; /* rgb(184, 184, 184) | hsl(0, 0, 72)   */
+  --color-gray-200:  #858585; /* rgb(133, 133, 133) | hsl(0, 0, 52)   */
+  --color-gray-300:  #5C5C5C; /* rgb(92, 92, 92)   | hsl(0, 0, 36)   */
+  --color-gray-400:  #3F3F3F; /* rgb(63, 63, 63)   | hsl(0, 0, 25)   */
+  --color-gray-500:  #2A2A2A; /* rgb(42, 42, 42)   | hsl(0, 0, 16)   */
+  --color-gray-600:  #242427; /* rgb(36, 36, 39)   | hsl(240, 4, 15) */
+  --color-gray-700:  #1C1C1F; /* rgb(28, 28, 31)   | hsl(240, 5, 12) */
+  --color-gray-800:  #121214; /* rgb(18, 18, 20)   | hsl(240, 5, 7)  */
+  --color-gray-900:  #0A0A0B; /* rgb(10, 10, 11)   | hsl(240, 5, 4)  */
+
+  /* ----------------------------------------------------------
+     COLOR — BLUE SCALE
+     ---------------------------------------------------------- */
+  --color-blue-50:   #ECF5FC; /* rgb(236, 245, 252) | hsl(206, 73, 96) */
+  --color-blue-100:  #C5DFF7; /* rgb(197, 223, 247) | hsl(209, 76, 87) */
+  --color-blue-200:  #A3D0F3; /* rgb(169, 208, 243) | hsl(209, 76, 81) */
+  --color-blue-300:  #82BAEE; /* rgb(130, 186, 238) | hsl(209, 76, 72) */
+  --color-blue-400:  #6AADEA; /* rgb(106, 173, 234) | hsl(209, 75, 67) */
+  --color-blue-500:  #4598E5; /* rgb(69, 152, 229)  | hsl(209, 75, 58) — PRIMARY */
+  --color-blue-600:  #3F8AD0; /* rgb(63, 138, 208)  | hsl(209, 61, 53) */
+  --color-blue-700:  #316CA3; /* rgb(49, 108, 163)  | hsl(209, 54, 42) */
+  --color-blue-800:  #26547E; /* rgb(38, 84, 126)   | hsl(209, 54, 32) */
+  --color-blue-900:  #1D4060; /* rgb(29, 64, 96)    | hsl(209, 54, 25) */
+
+  /* ----------------------------------------------------------
+     COLOR — SEMANTIC ALIASES
+     ---------------------------------------------------------- */
+  --color-primary:         var(--color-blue-500);
+  --color-primary-hover:   var(--color-blue-600);
+  --color-primary-active:  var(--color-blue-700);
+
+  --color-text-primary:    var(--color-gray-900);
+  --color-text-secondary:  var(--color-gray-500);
+  --color-text-muted:      var(--color-gray-300);
+  --color-text-inverted:   var(--color-white);
+
+  --color-bg-primary:      var(--color-white);
+  --color-bg-subtle:       var(--color-gray-50);
+  --color-bg-dark:         var(--color-gray-900);
+
+  --color-border:          var(--color-gray-100);
+  --color-border-strong:   var(--color-gray-200);
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY — FONT FAMILIES
+     ---------------------------------------------------------- */
+  --font-heading: 'Clash Display', sans-serif;
+  --font-body:    'Satoshi', sans-serif;
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY — FONT SIZES
+     ---------------------------------------------------------- */
+  --text-h1:       5rem;    /* 80px */
+  --text-h2:       3.5rem;  /* 56px */
+  --text-h3:       2.5rem;  /* 40px */
+  --text-h4:       1.75rem; /* 28px */
+  --text-h5:       1.25rem; /* 20px */
+
+  --text-large:    1.125rem; /* 18px */
+  --text-body:     1rem;     /* 16px */
+  --text-small:    0.875rem; /* 14px */
+  --text-caption:  0.75rem;  /* 12px */
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY — LINE HEIGHTS
+     ---------------------------------------------------------- */
+  --leading-heading-tight:  1.1;   /* 110% — h1, h2, h3, h5     */
+  --leading-heading-normal:  1.2;  /* 120% — h4                  */
+  --leading-body:           1.5;   /* 150% — all body styles      */
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY — FONT WEIGHTS
+     ---------------------------------------------------------- */
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+
+  /* ----------------------------------------------------------
+     SPACING SCALE (8pt grid)
+     ---------------------------------------------------------- */
+  --space-1:   0.25rem;  /*  4px */
+  --space-2:   0.5rem;   /*  8px */
+  --space-3:   0.75rem;  /* 12px */
+  --space-4:   1rem;     /* 16px */
+  --space-5:   1.25rem;  /* 20px */
+  --space-6:   1.5rem;   /* 24px */
+  --space-8:   2rem;     /* 32px */
+  --space-10:  2.5rem;   /* 40px */
+  --space-12:  3rem;     /* 48px */
+  --space-16:  4rem;     /* 64px */
+  --space-20:  5rem;     /* 80px */
+  --space-24:  6rem;     /* 96px */
+
+  /* ----------------------------------------------------------
+     BORDER RADIUS
+     ---------------------------------------------------------- */
+  --radius-sm:   0.25rem;  /*  4px */
+  --radius-md:   0.5rem;   /*  8px */
+  --radius-lg:   1rem;     /* 16px */
+  --radius-xl:   1.5rem;   /* 24px */
+  --radius-full: 9999px;
+
+  /* ----------------------------------------------------------
+     SHADOWS
+     ---------------------------------------------------------- */
+  --shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg:  0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl:  0 16px 48px rgba(0, 0, 0, 0.16);
+
+  /* ----------------------------------------------------------
+     TRANSITIONS
+     ---------------------------------------------------------- */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+}
+
+
+/* ============================================================
+   CSS RESET & BASE STYLES
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+
+/* --- Headings -------------------------------------------- */
+h1, .h1 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-heading-tight);
+  letter-spacing: -0.02em;
+}
+
+h2, .h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-heading-tight);
+  letter-spacing: -0.01em;
+}
+
+h3, .h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-heading-tight);
+}
+
+h4, .h4 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-heading-normal);
+}
+
+h5, .h5 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h5);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-heading-tight);
+}
+
+/* --- Body text ------------------------------------------- */
+.text-large-semibold {
+  font-family: var(--font-body);
+  font-size: var(--text-large);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-body);
+}
+
+.text-large {
+  font-family: var(--font-body);
+  font-size: var(--text-large);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-body);
+}
+
+.text-body-semibold {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-body);
+}
+
+.text-body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-body);
+}
+
+.text-body-italic {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-regular);
+  font-style: italic;
+  line-height: var(--leading-body);
+}
+
+.text-small {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-body);
+}
+
+.text-caption {
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-body);
+}
+
+
+/* ============================================================
+   COLOR UTILITIES
+   ============================================================ */
+
+/* Text colors */
+.text-primary   { color: var(--color-text-primary);  }
+.text-secondary { color: var(--color-text-secondary); }
+.text-muted     { color: var(--color-text-muted);     }
+.text-inverted  { color: var(--color-text-inverted);  }
+.text-blue      { color: var(--color-primary);        }
+
+/* Background colors */
+.bg-white    { background-color: var(--color-white);      }
+.bg-subtle   { background-color: var(--color-bg-subtle);  }
+.bg-dark     { background-color: var(--color-bg-dark);    }
+.bg-primary  { background-color: var(--color-primary);    }

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Meraki Studio mark: two upward chevrons, transparent background -->
+  <!-- Top chevron -->
+  <polygon points="16,3 27,13 24,13 16,6 8,13 5,13" fill="#FFFFFF"/>
+  <!-- Bottom chevron -->
+  <polygon points="16,14 27,24 24,24 16,17 8,24 5,24" fill="#FFFFFF"/>
+</svg>

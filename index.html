@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta Tags -->
+  <title>Meraki Studio — Websites que convertem</title>
+  <meta name="title" content="Meraki Studio — Websites que convertem" />
+  <meta name="description" content="Meraki Studio — Websites que comunicam valor e convertem. Transformo a presença digital de negócios e profissionais em algo que gera contato, autoridade e resultado." />
+  <meta name="author" content="Rafael Silva — Meraki Studio" />
+  <meta name="theme-color" content="#0A0A0B" />
+
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784583623/Logo_Branca_2_lqklw1.svg" />
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784583623/Logo_Branca_2_lqklw1.svg" />
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://merakistudio.com.br/" />
+  <meta property="og:title" content="Meraki Studio — Websites que convertem" />
+  <meta property="og:description" content="Websites que comunicam valor e convertem. Transformo a presença digital de negócios e profissionais em algo que gera contato, autoridade e resultado." />
+  <meta property="og:image" content="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784583721/OG_dglxpv.webp" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Meraki Studio" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://merakistudio.com.br/" />
+  <meta name="twitter:title" content="Meraki Studio — Websites que convertem" />
+  <meta name="twitter:description" content="Websites que comunicam valor e convertem. Transformo a presença digital de negócios e profissionais em algo que gera contato, autoridade e resultado." />
+  <meta name="twitter:image" content="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784583721/OG_dglxpv.webp" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Premium Noise overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Custom Contextual Cursor -->
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
+    <span class="custom-cursor__label" id="custom-cursor-label"></span>
+  </div>
+
+  <!-- Background vertical grid guidelines -->
+  <div class="grid-lines" aria-hidden="true">
+    <div class="grid-line grid-line--left"></div>
+    <div class="grid-line grid-line--right"></div>
+  </div>
+
+
+  <!-- ============================================================
+       NAVIGATION BAR
+       ============================================================ -->
+  <nav class="navbar" id="navbar" aria-label="Navegação principal">
+    <div class="navbar__inner">
+
+      <!-- Logo -->
+      <a href="#hero" class="navbar__logo" aria-label="Meraki Studio - Voltar ao topo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g clip-path="url(#clip0_logo_nav)">
+            <path d="M11.9459 0L0 11.9459L11.9459 8.05573L23.8917 11.9459L11.9459 0Z" fill="white"/>
+            <path d="M11.9947 11.9841L0.0488281 23.9299L11.9947 20.0398L23.9406 23.9299L11.9947 11.9841Z" fill="white"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_logo_nav">
+              <rect width="24" height="24" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+      </a>
+
+      <!-- Menu links -->
+      <div class="navbar__menu" role="menubar">
+        <a href="#trabalho" class="navbar__link" role="menuitem">Trabalhos</a>
+        <a href="#servicos" class="navbar__link" role="menuitem">Serviços</a>
+        <a href="#depoimentos" class="navbar__link" role="menuitem">Depoimentos</a>
+        <a href="#sobre" class="navbar__link" role="menuitem">Sobre</a>
+        <a href="#contato" class="navbar__link" role="menuitem">Contato</a>
+      </div>
+
+      <!-- Action Button -->
+      <a href="https://api.whatsapp.com/send?phone=5511979637036&text=Ol%C3%A1%20Rafael,%20tudo%20bem?%20Vim%20do%20seu%20site%20e%20preciso%20tirar%20algumas%20d%C3%BAvidas..." class="btn navbar__cta" id="btn-navbar-proposta" target="_blank" rel="noopener noreferrer">
+        Solicitar proposta
+      </a>
+
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="hero" id="hero" aria-label="Apresentação">
+    <!-- WebGL Shader Background -->
+    <div class="hero__shader">
+      <canvas id="glcanvas"></canvas>
+      <div class="hero__shader-mask"></div>
+    </div>
+
+    <div class="hero__inner">
+
+      <!-- Status badge -->
+      <div class="hero__content reveal">
+        <div class="hero__header">
+          <div class="hero__badge" aria-label="Status: disponível para novos projetos">
+            <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="6" height="6" rx="3" fill="#4CAF6F"/>
+            </svg>
+            <span class="hero__badge-label">DISPONÍVEL PARA NOVOS PROJETOS</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero__headline">Seu produto é incrível. Seu site precisa mostrar isso no primeiro segundo.</h1>
+        </div>
+
+        <!-- Divider -->
+        <hr class="hero__divider" />
+
+        <!-- Bottom row -->
+        <div class="hero__bottom">
+          <p class="hero__description">
+            Crio websites sob medida para empresas e profissionais que querem transmitir autoridade imediata, atrair os clientes certos e cobrar o valor justo pelo seu trabalho.
+          </p>
+
+          <div class="hero__actions">
+            <a href="https://api.whatsapp.com/send?phone=5511979637036&text=Ol%C3%A1%20Rafael,%20tudo%20bem?%20Vim%20do%20seu%20site%20e%20preciso%20tirar%20algumas%20d%C3%BAvidas..." class="btn btn--primary" id="btn-solicitar-proposta" target="_blank" rel="noopener noreferrer">
+              Solicitar proposta
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M7 17L17 7" stroke="#E5E5E5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 7H17V17" stroke="#E5E5E5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#trabalho" class="btn btn--outline" id="btn-ver-trabalho">
+              Ver trabalho
+            </a>
+          </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <a href="#trabalho" class="hero__scroll-indicator" aria-label="Rolar para os projetos">
+          <span>ROLAR PARA EXPLORAR</span>
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 4V16M10 16L15 11M10 16L5 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROJETOS RECENTES SECTION
+       ============================================================ -->
+  <section class="projects" id="trabalho" aria-label="Projetos recentes">
+    <div class="projects__inner">
+
+      <!-- Section header -->
+      <header class="projects__header reveal">
+        <h2 class="projects__title">Projetos recentes</h2>
+        <p class="projects__subtitle">Casos reais de marcas que trocaram um site genérico por um posicionamento forte no mercado.</p>
+      </header>
+
+      <!-- Project list -->
+      <div class="projects__list">
+
+        <!-- Project 1 — H2 Soluções em Saúde -->
+        <article class="project-card reveal" id="projeto-h2-saude">
+          <a href="projetos/h2solucoes.html" class="project-card__link-wrapper">
+            <div class="project-card__mockup" aria-label="Mockup do projeto H2 Soluções em Saúde">
+              <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784945924/01_Abertura_1_pjjmzs.webp" alt="H2 Soluções em Saúde" class="project-card__mockup-img" />
+            </div>
+          </a>
+          <div class="project-card__info">
+            <a href="projetos/h2solucoes.html" class="project-card__text project-card__text--link">
+              <h3 class="project-card__name">H2 Soluções em Saúde</h3>
+              <p class="project-card__desc">Um ecossistema de saúde que precisava de uma presença digital à altura da confiança que já tinha com seus pacientes.</p>
+            </a>
+            <a href="projetos/h2solucoes.html" class="project-card__link" aria-label="Ver projeto H2 Soluções em Saúde">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M14 34L34 14" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 14H34V34" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2 — INAED Maranhão Gestão -->
+        <article class="project-card reveal" id="projeto-inaed">
+          <a href="projetos/inaed.html" class="project-card__link-wrapper">
+            <div class="project-card__mockup" aria-label="Mockup do projeto INAED Maranhão Gestão">
+              <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784945327/01_Abertura_sr82gt.webp" alt="INAED Maranhão Gestão" class="project-card__mockup-img" />
+            </div>
+          </a>
+          <div class="project-card__info">
+            <a href="projetos/inaed.html" class="project-card__text project-card__text--link">
+              <h3 class="project-card__name">INAED  •  Maranhão Gestão</h3>
+              <p class="project-card__desc">Evento sem presença online oficial, travando a captação de patrocinadores. Landing page 100% focada em conversão.</p>
+            </a>
+            <a href="projetos/inaed.html" class="project-card__link" aria-label="Ver projeto INAED Maranhão Gestão">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M14 34L34 14" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 14H34V34" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3 — Tiago Silva Editor de vídeo -->
+        <article class="project-card reveal" id="projeto-tiago-silva">
+          <a href="projetos/tiagosilva.html" class="project-card__link-wrapper">
+            <div class="project-card__mockup" aria-label="Mockup do projeto Tiago Silva Editor de vídeo">
+              <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784946922/01_Abertura_resultado_lc2or7.webp" alt="Tiago Silva • Editor de vídeo" class="project-card__mockup-img" />
+            </div>
+          </a>
+          <div class="project-card__info">
+            <a href="projetos/tiagosilva.html" class="project-card__text project-card__text--link">
+              <h3 class="project-card__name">Tiago Silva  •  Editor de vídeo</h3>
+              <p class="project-card__desc">Editor com mais de 7 milhões de visualizações, sem portfólio à altura. Landing page que traduz autoridade e filtra o público certo.</p>
+            </a>
+            <a href="projetos/tiagosilva.html" class="project-card__link" aria-label="Ver projeto Tiago Silva Editor de vídeo">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M14 34L34 14" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 14H34V34" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVIÇOS SECTION
+       ============================================================ -->
+  <section class="services" id="servicos" aria-label="Serviços">
+    <div class="services__inner">
+
+      <!-- Section header -->
+      <div class="services__header reveal">
+        <h2 class="services__title">Serviços</h2>
+        <p class="services__hint">Passe o mouse sobre um serviço pra ver o projeto que melhor representa ele.</p>
+      </div>
+
+      <!-- Service list -->
+      <ul class="services__list reveal" role="list">
+
+        <li class="service-row" id="servico-site-institucional">
+          <span class="service-row__number" aria-hidden="true">01</span>
+          <span class="service-row__name">Site institucional</span>
+          <span class="service-row__tags">One-page · Multi-pages</span>
+        </li>
+
+        <li class="service-row" id="servico-landing-page">
+          <span class="service-row__number" aria-hidden="true">02</span>
+          <span class="service-row__name">Landing page</span>
+          <span class="service-row__tags">Vendas · Captura · Obrigado</span>
+        </li>
+
+        <li class="service-row" id="servico-portfolio">
+          <span class="service-row__number" aria-hidden="true">03</span>
+          <span class="service-row__name">Portfólio / Link na bio</span>
+          <span class="service-row__tags">Portfólio · Link na bio</span>
+        </li>
+
+        <li class="service-row" id="servico-design-grafico">
+          <span class="service-row__number" aria-hidden="true">04</span>
+          <span class="service-row__name">Design gráfico</span>
+          <span class="service-row__tags">Criativos · Carrosséis · Thumbnails</span>
+        </li>
+
+      </ul>
+
+      <!-- Floating cursor image preview -->
+      <div class="services__floating-preview" id="services-preview" aria-hidden="true">
+        <div class="services__preview-track" id="services-preview-track">
+          <div class="services__preview-item" data-service="servico-site-institucional">
+            <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784950984/Servi%C3%A7os_1_u1o4uz.webp" alt="Site institucional preview">
+          </div>
+          <div class="services__preview-item" data-service="servico-landing-page">
+            <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784950985/Servi%C3%A7os_2_tq5vuw.webp" alt="Landing page preview">
+          </div>
+          <div class="services__preview-item" data-service="servico-portfolio">
+            <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784950992/Servi%C3%A7os_3_qmtasm.webp" alt="Portfólio preview">
+          </div>
+          <div class="services__preview-item" data-service="servico-design-grafico">
+            <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784950994/Servi%C3%A7os_4_sq6aag.webp" alt="Design gráfico preview">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DEPOIMENTOS SECTION
+       ============================================================ -->
+  <section class="testimonials" id="depoimentos" aria-label="Depoimentos">
+    <div class="testimonials__inner">
+
+      <div class="testimonials__card reveal" role="region" aria-label="Carrossel de depoimentos">
+
+        <!-- Quote icon — top right -->
+        <div class="testimonials__quote-icon" aria-hidden="true">
+          <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.28 14.224H10.752L9.408 7V0H15.624V7L14.28 14.224ZM4.872 14.224H1.344L0 7V0H6.216V7L4.872 14.224Z" fill="#4598E5"/>
+          </svg>
+        </div>
+
+        <!-- Slides wrapper -->
+        <div class="testimonials__body">
+
+          <!-- Slide track -->
+          <div class="testimonials__track" id="testimonials-track">
+
+            <!-- Slide 1 -->
+            <div class="testimonial-slide" id="slide-1" aria-hidden="false">
+              <div class="testimonial-slide__top">
+                <span class="testimonial-slide__tag">RESULTADO: CONSISTÊNCIA VISUAL E PERCEPÇÃO PROFISSIONAL</span>
+                <blockquote class="testimonial-slide__quote">
+                  "Minha experiência com o serviço de design foi excelente. As peças criadas para o nosso feed ficaram extremamente profissionais, conseguindo transmitir com exatidão a qualidade e o cuidado que dedicamos ao nosso trabalho. Além da entrega impecável do material, todo o processo foi conduzido de forma rápida, organizada e com muita atenção aos detalhes. Recomendo demais o trabalho!"
+                </blockquote>
+              </div>
+              <div class="testimonial-slide__footer">
+                <div class="testimonial-slide__author">
+                  <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1779918799/Foto_de_Perfil_V2_lylnia.avif" alt="Gabriel — Gs Tech" class="testimonial-slide__avatar" />
+                  <div class="testimonial-slide__author-info">
+                    <span class="testimonial-slide__author-name">Gabriel</span>
+                    <span class="testimonial-slide__author-role">Gs Tech</span>
+                  </div>
+                </div>
+                <!-- Navigation -->
+                <div class="testimonials__nav" aria-label="Navegação de depoimentos">
+                  <button class="testimonials__nav-btn testimonials__nav-btn--prev" aria-label="Depoimento anterior">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M12.6668 8L3.3335 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8.00016 12.6665L3.3335 7.99984L8.00016 3.33317" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="testimonials__nav-btn testimonials__nav-btn--next" aria-label="Próximo depoimento">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M3.33317 8L12.6665 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M7.99984 3.3335L12.6665 8.00016L7.99984 12.6668" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="testimonial-slide" id="slide-2" aria-hidden="true">
+              <div class="testimonial-slide__top">
+                <span class="testimonial-slide__tag">RESULTADO: PRESENÇA DIGITAL QUE GERA AUTORIDADE</span>
+                <blockquote class="testimonial-slide__quote">
+                  "Excelente serviço de design! O site criado ficou extremamente profissional e transmitiu toda a qualidade do nosso serviço. O processo foi rápido, organizado e com muita atenção aos detalhes do projeto. Recomendo fortemente!"
+                </blockquote>
+              </div>
+              <div class="testimonial-slide__footer">
+                <div class="testimonial-slide__author">
+                  <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1779915325/Foto-de-perfil_a7zrqu.webp" alt="Tiago Silva • Editor de vídeo" class="testimonial-slide__avatar" />
+                  <div class="testimonial-slide__author-info">
+                    <span class="testimonial-slide__author-name">Tiago Silva</span>
+                    <span class="testimonial-slide__author-role">Editor de vídeo</span>
+                  </div>
+                </div>
+                <!-- Navigation -->
+                <div class="testimonials__nav" aria-label="Navegação de depoimentos">
+                  <button class="testimonials__nav-btn testimonials__nav-btn--prev" aria-label="Depoimento anterior">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M12.6668 8L3.3335 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8.00016 12.6665L3.3335 7.99984L8.00016 3.33317" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="testimonials__nav-btn testimonials__nav-btn--next" aria-label="Próximo depoimento">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M3.33317 8L12.6665 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M7.99984 3.3335L12.6665 8.00016L7.99984 12.6668" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="testimonial-slide" id="slide-3" aria-hidden="true">
+              <div class="testimonial-slide__top">
+                <span class="testimonial-slide__tag">RESULTADO: LANDING PAGE QUE CONVERTEU PATROCINADORES</span>
+                <blockquote class="testimonial-slide__quote">
+                  "Em menos de uma semana tínhamos uma página que transmitia exatamente o que o evento precisava comunicar. A captação de patrocinadores foi muito mais fácil depois disso."
+                </blockquote>
+              </div>
+              <div class="testimonial-slide__footer">
+                <div class="testimonial-slide__author">
+                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="testimonial-slide__avatar">
+                    <rect x="0.5" y="0.5" width="55" height="55" rx="27.5" fill="url(#avatar-grad-3)" stroke="#2A2A2A"/>
+                    <defs>
+                      <linearGradient id="avatar-grad-3" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#1C1C20"/>
+                        <stop offset="1" stop-color="#141416"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="testimonial-slide__author-info">
+                    <span class="testimonial-slide__author-name">Ricardo Alves</span>
+                    <span class="testimonial-slide__author-role">Coordenador, INAED</span>
+                  </div>
+                </div>
+                <!-- Navigation -->
+                <div class="testimonials__nav" aria-label="Navegação de depoimentos">
+                  <button class="testimonials__nav-btn testimonials__nav-btn--prev" aria-label="Depoimento anterior">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M12.6668 8L3.3335 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M8.00016 12.6665L3.3335 7.99984L8.00016 3.33317" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <button class="testimonials__nav-btn testimonials__nav-btn--next" aria-label="Próximo depoimento">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <path d="M3.33317 8L12.6665 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M7.99984 3.3335L12.6665 8.00016L7.99984 12.6668" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.testimonials__track -->
+
+        </div><!-- /.testimonials__body -->
+      </div><!-- /.testimonials__card -->
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOBRE / RAFAEL SECTION
+       ============================================================ -->
+  <section class="about" id="sobre" aria-label="Sobre Rafael Silva">
+    <div class="about__inner">
+
+      <!-- Left column -->
+      <div class="about__left reveal">
+
+        <!-- Header group -->
+        <div class="about__header">
+          <h2 class="about__title">Prazer, Rafael Silva</h2>
+          <p class="about__bio">Atuo com design de websites para negócios e profissionais que precisam comunicar valor antes mesmo de falar com o cliente. Cada projeto começa do zero, sem template genérico, sem copia e cola. O foco é simples: fazer seu negócio ser do tamanho que ele merece, e gerar resultado.</p>
+        </div>
+
+        <!-- Divider -->
+        <hr class="about__divider" />
+
+        <!-- Tools row -->
+        <div class="about__tools" role="list" aria-label="Ferramentas utilizadas">
+
+          <!-- Figma -->
+          <div class="tool-icon" role="listitem" aria-label="Figma">
+            <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g clip-path="url(#clip0_figma)">
+                <mask id="mask0_figma" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="24">
+                  <path d="M15.8025 0H0V24H15.8025V0Z" fill="white"/>
+                </mask>
+                <g mask="url(#mask0_figma)">
+                  <path d="M3.95061 24C6.13135 24 7.90124 22.208 7.90124 20V16H3.95061C1.76988 16 0 17.792 0 20C0 22.208 1.76988 24 3.95061 24Z" fill="white"/>
+                  <path d="M0 12C0 9.79199 1.76988 8 3.95061 8H7.90124V16H3.95061C1.76988 16 0 14.208 0 12Z" fill="#989898"/>
+                  <path d="M0 3.99999C0 1.792 1.76988 0 3.95061 0H7.90124V8.00001H3.95061C1.76988 8.00001 0 6.20799 0 3.99999Z" fill="#464646"/>
+                  <path d="M7.90137 0H11.852C14.0327 0 15.8026 1.792 15.8026 3.99999C15.8026 6.20799 14.0327 8.00001 11.852 8.00001H7.90137V0Z" fill="#606060"/>
+                  <path d="M15.8026 12C15.8026 14.208 14.0327 16 11.852 16C9.67126 16 7.90137 14.208 7.90137 12C7.90137 9.79199 9.67126 8 11.852 8C14.0327 8 15.8026 9.79199 15.8026 12Z" fill="#878787"/>
+                </g>
+              </g>
+              <defs><clipPath id="clip0_figma"><rect width="16" height="24" fill="white"/></clipPath></defs>
+            </svg>
+          </div>
+
+          <!-- Framer -->
+          <div class="tool-icon" role="listitem" aria-label="Framer">
+            <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g clip-path="url(#clip0_framer)">
+                <path d="M0 0H16V8H8L0 0ZM0 8H8L16 16H8V24L0 16V8Z" fill="white"/>
+              </g>
+              <defs><clipPath id="clip0_framer"><rect width="16" height="24" fill="white"/></clipPath></defs>
+            </svg>
+          </div>
+
+          <!-- Photoshop -->
+          <div class="tool-icon" role="listitem" aria-label="Adobe Photoshop">
+            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g clip-path="url(#clip0_ps)">
+                <mask id="mask0_ps" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+                  <path d="M24.7142 0H0V24H24.7142V0Z" fill="white"/>
+                </mask>
+                <g mask="url(#mask0_ps)">
+                  <path d="M20.3378 0H4.37648C1.95942 0 0 1.95158 0 4.35897V19.641C0 22.0484 1.95942 24 4.37648 24H20.3378C22.7548 24 24.7142 22.0484 24.7142 19.641V4.35897C24.7142 1.95158 22.7548 0 20.3378 0Z" fill="#2B2B2B"/>
+                  <path d="M5.56494 16.8301V6.27843C5.56494 6.20154 5.5981 6.16284 5.66443 6.16284C5.84109 6.16284 6.00235 6.16026 6.24563 6.15459C6.48865 6.14916 6.75115 6.14367 7.03313 6.13809C7.315 6.13263 7.61344 6.12714 7.92844 6.12156C8.24341 6.11613 8.55563 6.1134 8.86512 6.11328C9.70497 6.11328 10.4124 6.21786 10.9872 6.42705C11.5058 6.60177 11.9788 6.88944 12.3716 7.26918C12.7047 7.59834 12.962 7.99554 13.126 8.43336C13.2811 8.85945 13.3596 9.30939 13.3581 9.76263C13.3581 10.6435 13.1536 11.3701 12.7447 11.9423C12.333 12.517 11.7544 12.9521 11.0867 13.1891C10.3904 13.4478 9.61663 13.5356 8.76566 13.5356C8.52241 13.5356 8.35109 13.5329 8.25169 13.5273C8.15223 13.5219 8.00304 13.5191 7.8041 13.5191V16.8136C7.80699 16.8338 7.80512 16.8544 7.79865 16.8737C7.79217 16.8931 7.78127 16.9107 7.76678 16.9251C7.75229 16.9395 7.73464 16.9504 7.71521 16.9568C7.69579 16.9633 7.67512 16.9651 7.65485 16.9622H5.681C5.60356 16.9622 5.56494 16.9184 5.56494 16.8301ZM7.8041 8.14437V11.5859C7.94759 11.597 8.08021 11.6025 8.20196 11.6024H8.74907C9.15163 11.6011 9.55154 11.5375 9.93452 11.4139C10.263 11.3168 10.5564 11.1276 10.78 10.869C10.9955 10.6159 11.1033 10.2636 11.1033 9.81219C11.1121 9.49275 11.0286 9.17754 10.8629 8.90397C10.6887 8.6394 10.4369 8.43474 10.1417 8.31777C9.75636 8.16858 9.3447 8.09838 8.93145 8.11137C8.66615 8.11137 8.4313 8.1141 8.22687 8.11959C8.0222 8.12529 7.8813 8.13354 7.8041 8.14437Z" fill="white"/>
+                  <path d="M19.7683 10.96C19.4567 10.8006 19.1249 10.6839 18.7819 10.6132C18.4039 10.5269 18.0174 10.4826 17.6296 10.4811C17.4199 10.4755 17.2104 10.5005 17.0079 10.5555C16.879 10.584 16.7645 10.6572 16.6846 10.7619C16.6305 10.8456 16.6018 10.943 16.6017 11.0426C16.6047 11.1391 16.6397 11.232 16.7012 11.3068C16.798 11.4196 16.9164 11.5122 17.0493 11.5792C17.2857 11.706 17.5293 11.8191 17.7788 11.9178C18.3352 12.1033 18.8669 12.3555 19.3621 12.6691C19.6995 12.8811 19.9786 13.1734 20.1745 13.5195C20.3392 13.8472 20.4217 14.2099 20.4149 14.5763C20.4248 15.0602 20.286 15.5355 20.017 15.9386C19.729 16.3478 19.3291 16.6659 18.8647 16.8551C18.3617 17.0752 17.7399 17.1853 16.9996 17.1853C16.5293 17.1901 16.0597 17.1458 15.5986 17.0532C15.2354 16.9869 14.8817 16.876 14.5459 16.723C14.5096 16.7043 14.4795 16.6758 14.4589 16.6407C14.4383 16.6056 14.4283 16.5654 14.4298 16.5248V14.7414C14.4278 14.724 14.4306 14.7063 14.4379 14.6903C14.4452 14.6743 14.4568 14.6606 14.4713 14.6506C14.4855 14.6426 14.5019 14.6391 14.5182 14.6406C14.5345 14.6421 14.5499 14.6484 14.5625 14.6589C14.9591 14.8918 15.3898 15.0618 15.839 15.1625C16.235 15.2614 16.6411 15.314 17.0493 15.3194C17.4361 15.3194 17.7207 15.2698 17.9031 15.1708C17.9855 15.1332 18.0552 15.0727 18.1038 14.9965C18.1524 14.9203 18.1777 14.8317 18.1767 14.7414C18.1767 14.5985 18.0938 14.4609 17.928 14.3286C17.7623 14.1965 17.4252 14.0369 16.9167 13.8497C16.3961 13.6693 15.9025 13.4193 15.4494 13.1067C15.1254 12.8822 14.8585 12.5853 14.6702 12.2397C14.5072 11.9144 14.4247 11.5548 14.4298 11.1912C14.4289 10.7543 14.5494 10.3256 14.778 9.95273C15.0386 9.54209 15.4128 9.21521 15.8556 9.01151C16.3419 8.76947 16.9498 8.64839 17.6794 8.64821C18.1066 8.64479 18.5335 8.67515 18.9559 8.73902C19.2619 8.77769 19.5609 8.85824 19.8447 8.97848C19.8672 8.9849 19.8879 8.99645 19.9052 9.0122C19.9224 9.02798 19.9358 9.04751 19.9442 9.06929C19.9554 9.10961 19.9609 9.15128 19.9608 9.19313V10.8609C19.9619 10.8803 19.9579 10.8997 19.9492 10.9171C19.9405 10.9345 19.9273 10.9493 19.911 10.96C19.8889 10.971 19.8644 10.9767 19.8397 10.9767C19.8149 10.9767 19.7905 10.971 19.7683 10.96Z" fill="white"/>
+                </g>
+              </g>
+              <defs><clipPath id="clip0_ps"><rect width="25" height="24" fill="white"/></clipPath></defs>
+            </svg>
+          </div>
+
+          <!-- Gemini / AI sparkle -->
+          <div class="tool-icon" role="listitem" aria-label="Gemini">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g clip-path="url(#clip0_gemini)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.921 4.19578H6.328C5.61076 4.19578 4.92289 4.48063 4.41563 4.9877C3.90837 5.49477 3.62327 6.18254 3.623 6.89978V18.2618C3.623 18.9792 3.90799 19.6672 4.41528 20.1745C4.92256 20.6818 5.61059 20.9668 6.328 20.9668H17.691C18.4084 20.9668 19.0964 20.6818 19.6037 20.1745C20.111 19.6672 20.396 18.9792 20.396 18.2618V13.5058L22.019 12.3928V18.2628C22.0187 19.4106 21.5627 20.5112 20.7511 21.3228C19.9395 22.1344 18.8388 22.5905 17.691 22.5908H6.328C5.18022 22.5905 4.07953 22.1344 3.26793 21.3228C2.45633 20.5112 2.00027 19.4106 2 18.2628V6.90078C1.99987 6.33233 2.11172 5.76943 2.32916 5.24422C2.54661 4.719 2.86538 4.24177 3.26729 3.83977C3.66919 3.43777 4.14635 3.11889 4.67151 2.90132C5.19668 2.68376 5.75955 2.57178 6.328 2.57178H10.873L9.921 4.19578Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M17.8202 0C17.9652 0 18.0882 0.104 18.1192 0.246C18.4032 1.5663 19.063 2.77626 20.0192 3.73C20.9731 4.68669 22.1834 5.34691 23.5042 5.631C23.6462 5.662 23.7502 5.785 23.7502 5.931C23.7493 6.00129 23.7245 6.06917 23.6797 6.12338C23.635 6.17759 23.573 6.21486 23.5042 6.229C22.1838 6.51327 20.9738 7.17348 20.0202 8.13C19.051 9.09611 18.3863 10.3251 18.1082 11.665C18.0947 11.7316 18.0587 11.7916 18.0063 11.835C17.9539 11.8783 17.8882 11.9023 17.8202 11.903C17.7522 11.9023 17.6865 11.8783 17.6341 11.835C17.5816 11.7916 17.5457 11.7316 17.5322 11.665C17.2541 10.3251 16.5893 9.09611 15.6202 8.13C14.6541 7.16083 13.4251 6.4961 12.0852 6.218C12.0185 6.20449 11.9585 6.16853 11.9152 6.11611C11.8719 6.06369 11.8479 5.998 11.8472 5.93C11.8472 5.79 11.9472 5.67 12.0852 5.642C13.4251 5.3639 14.6541 4.69917 15.6202 3.73C16.5766 2.77635 17.2368 1.56639 17.5212 0.246C17.5353 0.17698 17.5728 0.114909 17.6272 0.0701419C17.6816 0.0253744 17.7497 0.000617143 17.8202 0Z" fill="white"/>
+              </g>
+              <defs><clipPath id="clip0_gemini"><rect width="24" height="24" fill="white"/></clipPath></defs>
+            </svg>
+          </div>
+
+          <!-- Perplexity / asterisk -->
+          <div class="tool-icon" role="listitem" aria-label="Perplexity">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g clip-path="url(#clip0_perp)">
+                <path d="M4.71458 15.9555L9.43198 13.3084L9.51098 13.0777L9.43198 12.9502H9.20128L8.41198 12.9016L5.71638 12.8287L3.37888 12.7316L1.11428 12.6102L0.543577 12.4887L0.00927734 11.7845L0.0638773 11.4323L0.543577 11.1105L1.22958 11.1713L2.74748 11.2745L5.02418 11.4323L6.67558 11.5295L9.12238 11.7845H9.51098L9.56558 11.6266L9.43198 11.5295L9.32878 11.4323L6.97318 9.8356L4.42318 8.1477L3.08758 7.1763L2.36508 6.6845L2.00078 6.2231L1.84298 5.2153L2.49868 4.4928L3.37898 4.5535L3.60358 4.6142L4.49608 5.3002L6.40248 6.7756L8.89178 8.6092L9.25608 8.9127L9.40178 8.8095L9.41998 8.7367L9.25598 8.4634L7.90208 6.0167L6.45708 3.5274L5.81358 2.4954L5.64358 1.876C5.58288 1.621 5.54038 1.4086 5.54038 1.1475L6.28718 0.1335L6.69988 0L7.69558 0.1336L8.11458 0.4978L8.73378 1.9125L9.73558 4.1407L11.2899 7.1703L11.7452 8.0688L11.9881 8.9006L12.0791 9.1556H12.237V9.0099L12.3645 7.3039L12.6013 5.2092L12.832 2.5135L12.9109 1.7546L13.2873 0.8439L14.0341 0.3521L14.6169 0.6314L15.0966 1.3174L15.0298 1.7607L14.7445 3.6124L14.1859 6.5145L13.8216 8.4574H14.0341L14.277 8.2145L15.2605 6.9092L16.9119 4.8449L17.6405 4.0253L18.4905 3.1207L19.0369 2.6896H20.069L20.828 3.8189L20.488 4.9846L19.4255 6.3324L18.5451 7.4738L17.2823 9.1738L16.493 10.5338L16.5659 10.6431L16.7541 10.6248L19.6076 10.0178L21.1497 9.7384L22.9893 9.4227L23.8211 9.8113L23.9121 10.2059L23.5843 11.0134L21.6173 11.4991L19.3101 11.9605L15.8737 12.7741L15.8312 12.8045L15.8798 12.8652L17.428 13.0109L18.0898 13.0473H19.7108L22.7283 13.272L23.5175 13.794L23.9911 14.4316L23.9121 14.9173L22.6979 15.5366L21.0586 15.148L17.2336 14.2373L15.9223 13.9094H15.7401V14.0187L16.833 15.0873L18.8365 16.8965L21.344 19.2279L21.4715 19.8047L21.1497 20.2601L20.8097 20.2115L18.6058 18.554L17.7558 17.8072L15.8312 16.1862H15.7037V16.3562L16.1469 17.0058L18.4905 20.5272L18.6119 21.6079L18.4419 21.96L17.8348 22.1725L17.1669 22.0511L15.7948 20.1265L14.3802 17.959L13.2388 16.0162L13.0991 16.0952L12.4251 23.3504L12.1095 23.7207L11.3809 24L10.7738 23.5386L10.452 22.7918L10.7738 21.3165L11.1624 19.3919L11.4781 17.8619L11.7634 15.9615L11.9334 15.3301L11.9213 15.2876L11.7816 15.3058L10.3488 17.273L8.16918 20.2176L6.44488 22.0632L6.03208 22.2272L5.31568 21.8568L5.38238 21.195L5.78318 20.6061L8.16918 17.5704L9.60808 15.6884L10.5371 14.6016L10.5309 14.4437H10.4763L4.13778 18.5601L3.00848 18.7058L2.52278 18.2504L2.58358 17.5037L2.81428 17.2608L4.72068 15.9494L4.71458 15.9555Z" fill="white"/>
+              </g>
+              <defs><clipPath id="clip0_perp"><rect width="24" height="24" fill="white"/></clipPath></defs>
+            </svg>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right column — photo -->
+      <div class="about__photo reveal" aria-label="Foto de Rafael Silva">
+        <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784954451/Teste_foto_de_perfil_vzcysw.webp" alt="Rafael Silva — Meraki Studio" class="about__photo-img" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA SECTION
+       ============================================================ -->
+  <section class="cta" id="contato" aria-label="Chamada para ação">
+    <!-- WebGL Shader Background -->
+    <div class="cta__shader">
+      <canvas id="glcanvas-cta"></canvas>
+      <div class="cta__shader-mask"></div>
+    </div>
+
+    <div class="cta__inner">
+
+      <!-- Corner bracket markers -->
+      <span class="cta__corner cta__corner--tl" aria-hidden="true">
+        <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g opacity="0.35">
+            <rect x="9" y="9" width="18" height="1" fill="#A0A0A0"/>
+            <rect x="9" width="1" height="18" fill="#A0A0A0"/>
+          </g>
+        </svg>
+      </span>
+      <span class="cta__corner cta__corner--tr" aria-hidden="true">
+        <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g opacity="0.35">
+            <rect x="18" y="9" width="18" height="1" transform="rotate(180 18 9)" fill="#A0A0A0"/>
+            <rect x="18" y="18" width="1" height="18" transform="rotate(180 18 18)" fill="#A0A0A0"/>
+          </g>
+        </svg>
+      </span>
+      <span class="cta__corner cta__corner--bl" aria-hidden="true">
+        <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g opacity="0.35">
+            <rect x="9" y="9" width="18" height="1" fill="#A0A0A0"/>
+            <rect x="9" width="1" height="18" fill="#A0A0A0"/>
+          </g>
+        </svg>
+      </span>
+      <span class="cta__corner cta__corner--br" aria-hidden="true">
+        <svg width="27" height="18" viewBox="0 0 27 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g opacity="0.35">
+            <rect x="18" y="9" width="18" height="1" transform="rotate(180 18 9)" fill="#A0A0A0"/>
+            <rect x="18" y="18" width="1" height="18" transform="rotate(180 18 18)" fill="#A0A0A0"/>
+          </g>
+        </svg>
+      </span>
+
+      <!-- Content -->
+      <div class="cta__content reveal">
+        <div class="cta__text">
+          <h2 class="cta__headline">Vamos tirar seu novo site do papel?</h2>
+          <p class="cta__sub">Me conte mais sobre a sua empresa e seus objetivos. Respondo com uma proposta personalizada em até 24 horas.</p>
+        </div>
+        <a href="https://api.whatsapp.com/send?phone=5511979637036&text=Ol%C3%A1%20Rafael,%20tudo%20bem?%20Vim%20do%20seu%20site%20e%20preciso%20tirar%20algumas%20d%C3%BAvidas..." class="btn btn--primary cta__btn" id="btn-cta-proposta" target="_blank" rel="noopener noreferrer">
+          Solicitar proposta
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7 17L17 7" stroke="#E5E5E5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7 7H17V17" stroke="#E5E5E5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" id="footer" aria-label="Rodapé">
+    <div class="footer__inner">
+
+      <!-- Top row: social icons + terms -->
+      <div class="footer__top">
+
+        <!-- Social icons -->
+        <div class="footer__socials" role="list" aria-label="Redes sociais">
+
+          <!-- WhatsApp -->
+          <a class="tool-icon footer__social-link" href="https://wa.me/55" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="WhatsApp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g clip-path="url(#clip0_wpp)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5031 3.48504C18.2473 1.23872 15.2471 0.00112707 12.0504 0C5.4634 0 0.102533 5.33065 0.100267 11.883C0.0991333 13.9776 0.649733 16.0221 1.69547 17.8239L0 23.9825L6.33493 22.33C8.0802 23.2771 10.0455 23.7756 12.0453 23.7762H12.0504C18.6363 23.7762 23.9977 18.445 24 11.8927C24.0011 8.7171 22.7595 5.73182 20.5031 3.48557V3.48504ZM12.0504 21.7693H12.0464C10.2644 21.7688 8.51627 21.2924 6.991 20.3926L6.62833 20.1784L2.86893 21.159L3.87227 17.5139L3.63613 17.1401C2.642 15.5674 2.1166 13.7497 2.11773 11.8836C2.12007 6.43783 6.57553 2.00692 12.0545 2.00692C14.7073 2.00804 17.201 3.03653 19.0763 4.90382C20.9517 6.77059 21.9837 9.25273 21.9825 11.8915C21.9802 17.3379 17.5247 21.7688 12.0504 21.7688V21.7693ZM17.4983 14.372C17.1998 14.2232 15.7319 13.5052 15.4579 13.4061C15.1841 13.3069 14.9853 13.2574 14.7864 13.5548C14.5876 13.8523 14.0152 14.5213 13.841 14.719C13.6668 14.9173 13.4926 14.9418 13.1941 14.793C12.8956 14.6443 11.9335 14.3309 10.7927 13.3195C9.9052 12.532 9.3058 11.5599 9.13167 11.2624C8.95747 10.965 9.11333 10.8043 9.26227 10.6567C9.39633 10.5234 9.5608 10.3097 9.71033 10.1365C9.85993 9.96325 9.9092 9.83907 10.0089 9.6413C10.1086 9.44301 10.0587 9.26983 9.98427 9.12106C9.90973 8.97235 9.31273 7.51074 9.06347 6.91644C8.82107 6.33752 8.57473 6.41615 8.39193 6.40648C8.21773 6.39786 8.01893 6.3962 7.81953 6.3962C7.62013 6.3962 7.29693 6.47032 7.02307 6.76774C6.7492 7.06515 5.97793 7.78369 5.97793 9.24471C5.97793 10.7057 7.04773 12.1183 7.19727 12.3166C7.3468 12.5149 9.30293 15.5139 12.2979 16.8005C13.0102 17.1065 13.5665 17.2894 14.0003 17.4262C14.7154 17.6524 15.3663 17.6205 15.8808 17.5441C16.4544 17.4587 17.6473 16.8256 17.896 16.1321C18.1447 15.4386 18.1447 14.8437 18.0702 14.7201C17.9957 14.5964 17.7963 14.5218 17.4978 14.3731L17.4983 14.372Z" fill="white"/>
+              </g>
+              <defs><clipPath id="clip0_wpp"><rect width="24" height="24" fill="white"/></clipPath></defs>
+            </svg>
+          </a>
+
+          <!-- Instagram -->
+          <a class="tool-icon footer__social-link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Instagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g clip-path="url(#clip0_ig)">
+                <path d="M7.03008 0.0840168C5.75328 0.144217 4.88138 0.348017 4.11908 0.647417C3.33028 0.954917 2.66158 1.36742 1.99628 2.03512C1.33108 2.70282 0.921282 3.37192 0.616082 4.16212C0.320682 4.92592 0.120482 5.79862 0.0640816 7.07612C0.00768159 8.35362 -0.00481841 8.76432 0.00148159 12.0231C0.00768159 15.2817 0.0220816 15.6902 0.0839816 16.9704C0.144982 18.2469 0.347982 19.1186 0.647482 19.8811C0.955482 20.67 1.36748 21.3384 2.03548 22.0039C2.70338 22.6694 3.37198 23.0782 4.16398 23.3839C4.92718 23.6789 5.80008 23.88 7.07738 23.9359C8.35468 23.9919 8.76578 24.0049 12.0236 23.9986C15.2814 23.9924 15.6916 23.9779 16.9714 23.9172C18.2514 23.8565 19.1184 23.652 19.8812 23.3539C20.6701 23.0453 21.339 22.6339 22.004 21.9658C22.669 21.2976 23.0785 20.628 23.3835 19.8374C23.6792 19.0742 23.8801 18.2014 23.9355 16.925C23.9915 15.6441 24.0047 15.2352 23.9985 11.977C23.9922 8.71872 23.9775 8.31022 23.9168 7.03052C23.8561 5.75082 23.6528 4.88182 23.3535 4.11882C23.0451 3.32992 22.6335 2.66202 21.9659 1.99602C21.2982 1.33002 20.628 0.920817 19.8378 0.616517C19.074 0.321017 18.2017 0.119717 16.9244 0.0645168C15.6471 0.00931678 15.236 -0.00498321 11.977 0.00141679C8.71798 0.00761679 8.30998 0.0216168 7.03008 0.0840168ZM7.17028 21.7771C6.00028 21.7262 5.36498 21.5318 4.94158 21.3691C4.38098 21.1531 3.98158 20.892 3.55968 20.4741C3.13768 20.0563 2.87858 19.6555 2.65968 19.0961C2.49528 18.6727 2.29728 18.0381 2.24258 16.8681C2.18308 15.6036 2.17058 15.2239 2.16358 12.0201C2.15658 8.81642 2.16888 8.43712 2.22428 7.17212C2.27428 6.00312 2.46988 5.36712 2.63228 4.94392C2.84828 4.38262 3.10848 3.98392 3.52728 3.56232C3.94608 3.14062 4.34568 2.88092 4.90558 2.66202C5.32858 2.49692 5.96308 2.30062 7.13258 2.24492C8.39808 2.18492 8.77728 2.17292 11.9806 2.16592C15.1839 2.15892 15.5641 2.17092 16.8301 2.22672C17.9991 2.27752 18.6354 2.47122 19.0581 2.63472C19.6189 2.85072 20.0181 3.11012 20.4397 3.52972C20.8614 3.94912 21.1213 4.34732 21.3402 4.90842C21.5055 5.33012 21.7019 5.96442 21.7571 7.13472C21.8173 8.40022 21.831 8.77972 21.8367 11.9827C21.8425 15.1857 21.8312 15.5661 21.7757 16.8307C21.7247 18.0007 21.5307 18.6362 21.3677 19.0601C21.1517 19.6205 20.8914 20.0201 20.4723 20.4415C20.0533 20.863 19.6542 21.1226 19.094 21.3415C18.6716 21.5064 18.0363 21.7032 16.8678 21.7589C15.6022 21.8184 15.223 21.8309 12.0185 21.8379C8.81398 21.8449 8.43578 21.8319 7.17028 21.7771ZM16.953 5.58642C16.9535 5.87125 17.0384 6.14954 17.197 6.38609C17.3557 6.62265 17.5809 6.80684 17.8443 6.91537C18.1076 7.02391 18.3972 7.05191 18.6765 6.99583C18.9557 6.93975 19.2121 6.80212 19.4131 6.60034C19.6141 6.39855 19.7508 6.14169 19.8058 5.86222C19.8609 5.58276 19.8318 5.29325 19.7223 5.03032C19.6128 4.76739 19.4277 4.54284 19.1906 4.38508C18.9534 4.22731 18.6748 4.14342 18.39 4.14402C18.0082 4.14481 17.6423 4.29721 17.3728 4.56769C17.1034 4.83818 16.9523 5.20461 16.953 5.58642ZM5.83848 12.012C5.84518 15.4152 8.60908 18.1677 12.0115 18.1613C15.4141 18.1548 18.1685 15.3912 18.1621 11.988C18.1556 8.58482 15.3911 5.83152 11.9881 5.83822C8.58508 5.84492 5.83208 8.60922 5.83848 12.012ZM7.99998 12.0077C7.99842 11.2166 8.23149 10.4428 8.66971 9.78412C9.10793 9.12546 9.73163 8.61154 10.4619 8.30735C11.1922 8.00315 11.9963 7.92234 12.7726 8.07514C13.5488 8.22794 14.2623 8.60749 14.8228 9.16578C15.3833 9.72408 15.7657 10.436 15.9216 11.2117C16.0774 11.9873 15.9998 12.7917 15.6985 13.5232C15.3972 14.2547 14.8858 14.8804 14.2289 15.3213C13.572 15.7621 12.7991 15.9982 12.008 15.9998C11.4827 16.0009 10.9623 15.8985 10.4766 15.6985C9.99082 15.4985 9.54925 15.2047 9.17706 14.834C8.80487 14.4633 8.50935 14.0229 8.30739 13.5379C8.10542 13.053 8.00097 12.533 7.99998 12.0077Z" fill="white"/>
+              </g>
+              <defs><clipPath id="clip0_ig"><rect width="24" height="24" fill="white"/></clipPath></defs>
+            </svg>
+          </a>
+
+          <!-- Behance -->
+          <a class="tool-icon footer__social-link" href="https://behance.net/" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="Behance">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M16.969 16.9268C17.2235 17.1625 17.5232 17.3441 17.85 17.4605C18.1768 17.5768 18.5238 17.6256 18.87 17.6038C19.4186 17.6178 19.9566 17.4509 20.401 17.1288C20.763 16.8938 21.037 16.5448 21.18 16.1388H23.765C23.4896 17.2966 22.8173 18.3212 21.865 19.0348C20.9508 19.6415 19.8706 19.949 18.774 19.9148C17.9913 19.9251 17.2146 19.7778 16.49 19.4818C15.8342 19.2086 15.2462 18.7953 14.767 18.2708C14.2898 17.7215 13.9231 17.0852 13.687 16.3968C13.4223 15.6272 13.2927 14.8176 13.304 14.0038C13.299 13.2038 13.433 12.4088 13.7 11.6548C14.0601 10.5946 14.746 9.67522 15.6597 9.028C16.5735 8.38077 17.6683 8.03877 18.788 8.05084C19.615 8.03369 20.4327 8.22745 21.164 8.61384C21.825 8.97584 22.395 9.48384 22.832 10.0988C23.2784 10.7438 23.5984 11.4676 23.775 12.2318C23.969 13.0528 24.038 13.8978 23.98 14.7398H16.281C16.218 15.5298 16.465 16.3138 16.969 16.9268ZM6.947 4.08384C7.59529 4.0721 8.24263 4.13858 8.875 4.28184C9.40769 4.3979 9.91339 4.61443 10.365 4.91984C10.783 5.22284 11.113 5.63084 11.323 6.10184C11.564 6.68084 11.68 7.30484 11.664 7.93184C11.6919 8.62105 11.5159 9.30318 11.158 9.89284C10.7822 10.4495 10.2628 10.8941 9.655 11.1798C10.4802 11.4021 11.199 11.9117 11.682 12.6168C12.146 13.3638 12.379 14.2318 12.352 15.1108C12.3679 15.8116 12.2232 16.5067 11.929 17.1428C11.6574 17.6985 11.2591 18.1825 10.766 18.5558C10.2593 18.9258 9.68876 19.1994 9.083 19.3628C8.45517 19.5368 7.80648 19.6239 7.155 19.6218H0V4.08384H6.947ZM6.712 16.9838C7.02 16.9878 7.328 16.9548 7.628 16.8848C7.90234 16.8246 8.16244 16.7118 8.394 16.5528C8.622 16.3948 8.805 16.1818 8.928 15.9338C9.07 15.6168 9.136 15.2708 9.119 14.9248C9.14994 14.6089 9.10817 14.2902 8.99689 13.9929C8.88561 13.6956 8.70777 13.4278 8.477 13.2098C7.98742 12.8498 7.38781 12.6712 6.781 12.7048H3.241V16.9838H6.712ZM20.347 11.0168C20.1316 10.8014 19.8725 10.6346 19.5872 10.5278C19.3018 10.4211 18.9969 10.3767 18.693 10.3978C18.2895 10.3822 17.8888 10.4714 17.53 10.6568C17.2457 10.8131 16.995 11.0238 16.792 11.2768C16.6112 11.5135 16.4768 11.7822 16.396 12.0688C16.322 12.3078 16.276 12.5538 16.259 12.8028H21.028C20.9862 12.1531 20.7496 11.5311 20.349 11.0178L20.347 11.0168ZM6.534 10.3688C7.04366 10.3897 7.54533 10.237 7.957 9.93584C8.356 9.58084 8.564 9.05584 8.517 8.52284C8.52997 8.21587 8.46891 7.91027 8.339 7.63184C8.22817 7.41063 8.05643 7.2257 7.844 7.09884C7.62857 6.95919 7.38644 6.86588 7.133 6.82484C6.85803 6.77108 6.57813 6.74661 6.298 6.75184H3.241V10.3828H6.534V10.3688ZM21.62 5.12184H15.644V6.64884H21.62V5.12184Z" fill="white"/>
+            </svg>
+          </a>
+
+          <!-- Email -->
+          <a class="tool-icon footer__social-link" href="mailto:contato@merakistudio.com.br" role="listitem" aria-label="E-mail">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M18.25 5.5H23V19.25C23 20.0784 22.3284 20.75 21.5 20.75H19C18.8011 20.75 18.6103 20.671 18.4697 20.5303C18.329 20.3897 18.25 20.1989 18.25 20V5.5Z" fill="white"/>
+              <path d="M5.75 5.5H1V19.25C1 20.0784 1.67163 20.75 2.5 20.75H5C5.19891 20.75 5.38968 20.671 5.53033 20.5303C5.67098 20.3897 5.75 20.1989 5.75 20V5.5Z" fill="white"/>
+              <path d="M4.90327 3.80703C3.89915 2.96303 2.40102 3.09278 1.55702 4.09691C0.713024 5.10091 0.842773 6.59903 1.8469 7.44316L11.3566 15.4368C11.5368 15.5882 11.7647 15.6713 12.0001 15.6713C12.2355 15.6713 12.4633 15.5882 12.6435 15.4368L22.1533 7.44303C23.1573 6.59903 23.287 5.10091 22.443 4.09678C21.599 3.09278 20.1009 2.96303 19.0969 3.80703L12 9.77253L4.90327 3.80703Z" fill="#CCCCCC"/>
+            </svg>
+          </a>
+
+          <!-- LinkedIn -->
+          <a class="tool-icon footer__social-link" href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" role="listitem" aria-label="LinkedIn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g clip-path="url(#clip0_li)">
+                <path d="M20.4491 20.4495H16.8931V14.8804C16.8931 13.5525 16.8694 11.8429 15.0436 11.8429C13.1915 11.8429 12.9081 13.2899 12.9081 14.7838V20.4491H9.35213V8.99697H12.7658V10.562H12.8137C13.1553 9.97787 13.649 9.49732 14.2421 9.17154C14.8353 8.84577 15.5057 8.68697 16.1819 8.71206C19.7861 8.71206 20.4506 11.0828 20.4506 14.167L20.4491 20.4495ZM5.33963 7.43162C4.19991 7.43181 3.27581 6.508 3.27562 5.36828C3.27544 4.22856 4.19916 3.30447 5.33887 3.30428C6.47859 3.304 7.40269 4.22781 7.40287 5.36753C7.40297 5.91484 7.18566 6.43978 6.79872 6.82687C6.41179 7.21396 5.88694 7.4315 5.33963 7.43162ZM7.11769 20.4496H3.55791V8.99697H7.11759V20.4495L7.11769 20.4496ZM22.2219 0.00174674H1.77103C0.804469 -0.00912826 0.0118125 0.765153 0 1.73172V22.2679C0.0114375 23.235 0.804 24.01 1.77094 23.9999H22.2219C23.1909 24.0119 23.9866 23.2368 24 22.2679V1.73012C23.9862 0.761684 23.1905 -0.0125033 22.2219 0.00015299" fill="white"/>
+              </g>
+              <defs><clipPath id="clip0_li"><rect width="24" height="24" fill="white"/></clipPath></defs>
+            </svg>
+          </a>
+
+        </div>
+
+        <!-- Terms links -->
+        <div class="footer__terms">
+          <span class="footer__terms-label">Termos e políticas</span>
+          <div class="footer__terms-links">
+            <a href="#" class="footer__terms-link footer__terms-link--inter">Política de privacidade</a>
+            <a href="#" class="footer__terms-link">Termos de uso</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <span class="footer__bottom-text">São Paulo, Brasil</span>
+        <span class="footer__bottom-text">© 2026 Rafael Silva — Todos os direitos reservados.</span>
+        <a href="#hero" class="footer__bottom-text footer__back-top" id="footer-back-top">Voltar ao topo ↑</a>
+      </div>
+
+    </div>
+
+    <!-- Giant responsive branding text -->
+    <div class="footer__brand-wrapper">
+      <span class="footer__brand-text">MERAKI STUDIO</span>
+    </div>
+
+  </footer>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+
+
