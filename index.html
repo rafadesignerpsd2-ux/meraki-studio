@@ -63,7 +63,8 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" /></noscript>
 
   <!-- Preload Critical Local Fonts to Prevent Flash of Invisible Text (FOIT) -->
   <link rel="preload" href="./fonts/ClashDisplay-Medium.woff2" as="font" type="font/woff2" crossorigin />
@@ -159,9 +160,6 @@
         <a href="https://api.whatsapp.com/send?phone=5511979637036&text=Ol%C3%A1%20Rafael,%20tudo%20bem?%20Vim%20do%20seu%20site%20e%20preciso%20tirar%20algumas%20d%C3%BAvidas..." class="btn btn--primary mobile-menu__cta" target="_blank" rel="noopener noreferrer">
           Falar no WhatsApp
         </a>
-        <button class="btn btn--outline mobile-menu__email-btn" id="btn-open-modal-mobile">
-          Enviar E-mail / Briefing
-        </button>
       </div>
     </div>
   </div>
@@ -354,16 +352,16 @@
       <div class="services__floating-preview" id="services-preview" aria-hidden="true">
         <div class="services__preview-track" id="services-preview-track">
           <div class="services__preview-item" data-service="servico-site-institucional">
-            <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784950984/Servi%C3%A7os_1_u1o4uz.webp" alt="Site institucional preview">
+            <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/f_auto,q_auto/v1784950984/Servi%C3%A7os_1_u1o4uz.webp" alt="Site institucional preview" loading="lazy" decoding="async">
           </div>
           <div class="services__preview-item" data-service="servico-landing-page">
-            <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784950985/Servi%C3%A7os_2_tq5vuw.webp" alt="Landing page preview">
+            <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/f_auto,q_auto/v1784950985/Servi%C3%A7os_2_tq5vuw.webp" alt="Landing page preview" loading="lazy" decoding="async">
           </div>
           <div class="services__preview-item" data-service="servico-portfolio">
-            <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784950992/Servi%C3%A7os_3_qmtasm.webp" alt="Portfólio preview">
+            <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/f_auto,q_auto/v1784950992/Servi%C3%A7os_3_qmtasm.webp" alt="Portfólio preview" loading="lazy" decoding="async">
           </div>
           <div class="services__preview-item" data-service="servico-design-grafico">
-            <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784950994/Servi%C3%A7os_4_sq6aag.webp" alt="Design gráfico preview">
+            <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/f_auto,q_auto/v1784950994/Servi%C3%A7os_4_sq6aag.webp" alt="Design gráfico preview" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -402,7 +400,7 @@
               </div>
               <div class="testimonial-slide__footer">
                 <div class="testimonial-slide__author">
-                  <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1779918799/Foto_de_Perfil_V2_lylnia.avif" alt="Gabriel — Gs Tech" class="testimonial-slide__avatar" />
+                  <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/f_auto,q_auto/v1779918799/Foto_de_Perfil_V2_lylnia.avif" alt="Gabriel — Gs Tech" class="testimonial-slide__avatar" width="48" height="48" loading="lazy" decoding="async" />
                   <div class="testimonial-slide__author-info">
                     <span class="testimonial-slide__author-name">Gabriel</span>
                     <span class="testimonial-slide__author-role">Gs Tech</span>
@@ -436,7 +434,7 @@
               </div>
               <div class="testimonial-slide__footer">
                 <div class="testimonial-slide__author">
-                  <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1779915325/Foto-de-perfil_a7zrqu.webp" alt="Tiago Silva • Editor de vídeo" class="testimonial-slide__avatar" />
+                  <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/f_auto,q_auto/v1779915325/Foto-de-perfil_a7zrqu.webp" alt="Tiago Silva • Editor de vídeo" class="testimonial-slide__avatar" width="48" height="48" loading="lazy" decoding="async" />
                   <div class="testimonial-slide__author-info">
                     <span class="testimonial-slide__author-name">Tiago Silva</span>
                     <span class="testimonial-slide__author-role">Editor de vídeo</span>
@@ -603,7 +601,7 @@
 
       <!-- Right column — photo -->
       <div class="about__photo reveal" aria-label="Foto de Rafael Silva">
-        <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784954451/Teste_foto_de_perfil_vzcysw.webp" alt="Rafael Silva — Meraki Studio" class="about__photo-img" />
+        <img src="https://res.cloudinary.com/dxlwbkzqq/image/upload/f_auto,q_auto/v1784954451/Teste_foto_de_perfil_vzcysw.webp" alt="Rafael Silva — Meraki Studio" class="about__photo-img" width="520" height="520" loading="lazy" decoding="async" />
       </div>
 
     </div>
@@ -812,8 +810,8 @@
     </svg>
   </a>
 
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.27/dist/lenis.min.js"></script>
-  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.27/dist/lenis.min.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
 
