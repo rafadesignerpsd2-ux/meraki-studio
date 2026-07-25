@@ -854,13 +854,15 @@
   width: 100%;
   opacity: 0;
   pointer-events: none;
-  transition: opacity var(--transition-slow);
+  visibility: hidden;
+  transition: opacity var(--transition-slow), visibility var(--transition-slow);
 }
 
 .testimonial-slide[aria-hidden="false"] {
   opacity: 1;
   pointer-events: auto;
   position: relative;
+  visibility: visible;
 }
 
 /* --- Slide top: tag + quote --- */
@@ -1295,7 +1297,7 @@
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.32px;
-  color: #555555;
+  color: #B0B0B5;
   text-decoration: none;
   white-space: nowrap;
   transition: color var(--transition-fast);
@@ -1744,7 +1746,8 @@
   z-index: 10001;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   display: flex;
   flex-direction: column;
 }
@@ -1752,6 +1755,7 @@
 .mobile-menu.active {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
 }
 
 .mobile-menu__inner {
@@ -1838,13 +1842,15 @@
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   padding: 20px;
 }
 
 .modal.active {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
 }
 
 .modal__backdrop {
