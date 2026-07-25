@@ -423,7 +423,7 @@ void main() {
   window.addEventListener('mousemove', (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
-  });
+  }, { passive: true });
 
   // Shift slides on hover
   rows.forEach((row, index) => {
@@ -454,7 +454,7 @@ void main() {
   window.addEventListener('mousemove', (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
-  });
+  }, { passive: true });
 
   function updateCursor() {
     currentX += (targetX - currentX) * lerpFactor;
@@ -519,31 +519,37 @@ void main() {
 
 // ── Lenis Smooth Scroll Initialization ────────────────────────
 (function () {
-  if (typeof Lenis === 'undefined') return;
+  let lenis = null;
+  if (typeof Lenis !== 'undefined') {
+    lenis = new Lenis({
+      duration: 1.4, // Increased scroll weight slightly
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth easeOutExpo
+      smoothWheel: true,
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+    });
 
-  const lenis = new Lenis({
-    duration: 1.4, // Increased scroll weight slightly
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth easeOutExpo
-    smoothWheel: true,
-    orientation: 'vertical',
-    gestureOrientation: 'vertical',
-  });
-
-  function raf(time) {
-    lenis.raf(time);
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
     requestAnimationFrame(raf);
   }
-  requestAnimationFrame(raf);
 
   // Link scroll navigation compatibility
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
+      if (targetId === '#') {
+        if (lenis) lenis.scrollTo(0);
+        else window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
       const target = document.querySelector(targetId);
       if (target) {
-        lenis.scrollTo(target, { offset: -80 });
+        if (lenis) lenis.scrollTo(target, { offset: -80 });
+        else target.scrollIntoView({ behavior: 'smooth' });
       }
     });
   });
@@ -555,7 +561,9 @@ void main() {
   const navLinks = document.querySelectorAll('.navbar__link');
   if (!sections.length || !navLinks.length) return;
 
-  window.addEventListener('scroll', () => {
+  let ticking = false;
+
+  function updateActiveLink() {
     let currentSectionId = '';
     const scrollPos = window.scrollY + 200;
 
@@ -573,7 +581,15 @@ void main() {
         link.classList.add('navbar__link--active');
       }
     });
-  });
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateActiveLink);
+      ticking = true;
+    }
+  }, { passive: true });
 })();
 
 
