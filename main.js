@@ -592,7 +592,21 @@ void main() {
   }, { passive: true });
 })();
 
-
-
-
-
+// ── Conversion Event Tracking Helper (GA4 / Meta Pixel) ──────
+(function () {
+  document.querySelectorAll('a[href*="api.whatsapp.com"], a[href*="wa.me"]').forEach(button => {
+    button.addEventListener('click', () => {
+      // Google Analytics GA4 Event Trigger
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'event_category': 'WhatsApp CTA',
+          'event_label': button.getAttribute('aria-label') || 'WhatsApp Click'
+        });
+      }
+      // Meta Pixel Event Trigger
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact', { content_name: 'WhatsApp CTA Click' });
+      }
+    });
+  });
+})();

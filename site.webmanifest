@@ -1,0 +1,23 @@
+{
+  "name": "Meraki Studio — Design de Websites & UI Design",
+  "short_name": "Meraki Studio",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784583623/Logo_Branca_2_lqklw1.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://res.cloudinary.com/dxlwbkzqq/image/upload/v1784583623/Logo_Branca_2_lqklw1.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#0A0A0B",
+  "background_color": "#0A0A0B",
+  "display": "standalone",
+  "start_url": "/",
+  "orientation": "portrait"
+}
