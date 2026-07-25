@@ -2,6 +2,16 @@
    MERAKI STUDIO — MAIN JS
    ============================================================ */
 
+// ── Smooth scroll for anchor links ──────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
 
 // ── Testimonials carousel ────────────────────────────────────
 (function () {
@@ -319,6 +329,8 @@ void main() {
 
   const start = performance.now();
   let isVisible = true;
+  let animId = null;
+
   function render() {
     if (!isVisible || document.hidden) {
       animId = null;
@@ -404,7 +416,8 @@ void main() {
     mouseX += (targetX - mouseX) * speed;
     mouseY += (targetY - mouseY) * speed;
 
-    preview.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+    preview.style.left = `${mouseX}px`;
+    preview.style.top = `${mouseY}px`;
 
     requestAnimationFrame(updatePosition);
   }
@@ -437,9 +450,6 @@ void main() {
   const cursor = document.getElementById('custom-cursor');
   const label = document.getElementById('custom-cursor-label');
   if (!cursor || !label) return;
-
-  // Skip cursor animation on touch-only devices (no mouse) to save CPU
-  if (window.matchMedia('(hover: none)').matches) return;
 
   let targetX = 0, targetY = 0;
   let currentX = 0, currentY = 0;
