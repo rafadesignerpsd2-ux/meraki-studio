@@ -102,12 +102,13 @@
 .grid-line::after {
   content: '';
   position: absolute;
-  top: -150px;
+  top: 0;
   left: 0;
   width: 1px;
   height: 150px;
   background: linear-gradient(to bottom, transparent, #4598E5, transparent);
   animation: linePulse 10s infinite linear;
+  will-change: transform;
 }
 
 .grid-line--left {
@@ -124,10 +125,10 @@
 
 @keyframes linePulse {
   0% {
-    top: -150px;
+    transform: translateY(-150px);
   }
   100% {
-    top: 100%;
+    transform: translateY(calc(100vh + 150px));
   }
 }
 
@@ -1464,12 +1465,12 @@
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
 }
 
 .reveal.reveal--visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: transform, opacity;
 }
 
 
