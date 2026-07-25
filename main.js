@@ -302,17 +302,19 @@ void main() {
   });
 
   function resize() {
-    // Capping DPR at 1.0 for background canvas to avoid layout blocking and GPU bottleneck
-    const dpr = 1.0;
-    canvas.width = canvas.clientWidth * dpr;
-    canvas.height = canvas.clientHeight * dpr;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const w = canvas.clientWidth || (canvas.parentElement ? canvas.parentElement.clientWidth : 0) || window.innerWidth;
+    const h = canvas.clientHeight || (canvas.parentElement ? canvas.parentElement.clientHeight : 0) || window.innerHeight;
+    canvas.width = Math.max(w * dpr, 100);
+    canvas.height = Math.max(h * dpr, 100);
     gl.viewport(0, 0, canvas.width, canvas.height);
   }
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(resize, 150);
+    resizeTimer = setTimeout(resize, 100);
   }, { passive: true });
+  window.addEventListener('load', resize, { passive: true });
   resize();
 
   const start = performance.now();
@@ -321,6 +323,10 @@ void main() {
     if (!isVisible || document.hidden) {
       animId = null;
       return;
+    }
+
+    if (canvas.width <= 100 || canvas.height <= 100) {
+      resize();
     }
 
     const t = (performance.now() - start) / 1000;
