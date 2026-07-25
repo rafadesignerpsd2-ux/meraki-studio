@@ -227,20 +227,30 @@ void main() {
         float edgeMix = max(max(edgeFactors.r, edgeFactors.g), edgeFactors.b);
 
         vec3 dispersedColor = vec3(
-            paletteN(gradTs.r, colorCount).r,
-            convergentColor.g,
-            paletteN(gradTs.b, colorCount).b
-        );
+        float fi = float(i) / float(SAMPLES - 1);
+        float dispersionOffset = (fi - 0.5) * u_dispersionStrength;
 
-        vec3 finalColor = mix(convergentColor, dispersedColor, edgeMix * 2.0);
+        vec2 distortedSt = lensDistort(st, center, u_lensRadius, u_lensScale + dispersionOffset, idx);
 
-        vec3 rainbow = (gradTs - gradTs.g) * 3.0;
-        finalColor += rainbow * edgeMix * u_edgeDisp;
+        float edgeDist = length(distortedSt - center);
+        float pattern = sin(edgeDist * u_edgeDisp - u_time * u_speed * 2.0) * 0.5 + 0.5;
 
-        col += tint * finalColor * (3.0 / float(SAMPLES));
+        pattern += (fi - 0.5) * 0.1;
+        pattern = clamp(pattern, 0.0, 1.0);
+
+        vec4 col = samplePalette(pattern);
+
+        float weight = 1.0 - abs(fi - 0.5) * 0.5;
+        accumColor += col * weight;
+        totalWeight += weight;
     }
 
-    fragColor = vec4(col, 1.0);
+    vec4 finalColor = accumColor / totalWeight;
+
+    vec3 jitter = pcg3d(vec3(gl_FragCoord.xy, u_time)) - 0.5;
+    finalColor.rgb += jitter * (1.0 / 255.0);
+
+    fragColor = finalColor;
 }`;
 
   function compile(type, src) {
@@ -304,17 +314,32 @@ void main() {
     return [((n>>16)&255)/255, ((n>>8)&255)/255, (n&255)/255];
   }
 
+  // Precompute flat colors array once to avoid allocations per frame
+  const flatColors = new Float32Array(8 * 4);
+  CONFIG.colors.forEach((hex, i) => {
+    const [r,g,b] = hexToRgb(hex);
+    flatColors[i*4] = r; flatColors[i*4+1] = g; flatColors[i*4+2] = b; flatColors[i*4+3] = 1.0;
+  });
+
   function resize() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = canvas.clientWidth * dpr;
     canvas.height = canvas.clientHeight * dpr;
     gl.viewport(0, 0, canvas.width, canvas.height);
   }
-  window.addEventListener('resize', resize);
+  window.addEventListener('resize', resize, { passive: true });
   resize();
 
   const start = performance.now();
+  let isVisible = true;
+  let animId = null;
+
   function render() {
+    if (!isVisible || document.hidden) {
+      animId = null;
+      return;
+    }
+
     const t = (performance.now() - start) / 1000;
 
     gl.uniform2f(loc.resolution, canvas.width, canvas.height);
@@ -329,18 +354,37 @@ void main() {
     gl.uniform1f(loc.dispersionStrength, CONFIG.dispersionStrength);
     gl.uniform1f(loc.edgeDisp, CONFIG.edgeDisp);
     gl.uniform1i(loc.colorsLength, CONFIG.colors.length);
-
-    const flat = new Float32Array(8 * 4);
-    CONFIG.colors.forEach((hex, i) => {
-      const [r,g,b] = hexToRgb(hex);
-      flat[i*4] = r; flat[i*4+1] = g; flat[i*4+2] = b; flat[i*4+3] = 1.0;
-    });
-    gl.uniform4fv(loc.colors, flat);
+    gl.uniform4fv(loc.colors, flatColors);
 
     gl.drawArrays(gl.TRIANGLES, 0, 6);
-    requestAnimationFrame(render);
+    animId = requestAnimationFrame(render);
   }
-  requestAnimationFrame(render);
+
+  function startAnim() {
+    if (!animId) {
+      animId = requestAnimationFrame(render);
+    }
+  }
+
+  // Pause WebGL rendering when canvas is out of screen viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      isVisible = entry.isIntersecting;
+      if (isVisible) {
+        startAnim();
+      }
+    });
+  }, { threshold: 0.01 });
+  observer.observe(canvas);
+
+  // Pause WebGL rendering when user switches tabs
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && isVisible) {
+      startAnim();
+    }
+  }, { passive: true });
+
+  startAnim();
   }
 
   // Initialize both shader canvases
