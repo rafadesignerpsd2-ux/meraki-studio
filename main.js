@@ -227,30 +227,20 @@ void main() {
         float edgeMix = max(max(edgeFactors.r, edgeFactors.g), edgeFactors.b);
 
         vec3 dispersedColor = vec3(
-        float fi = float(i) / float(SAMPLES - 1);
-        float dispersionOffset = (fi - 0.5) * u_dispersionStrength;
+            paletteN(gradTs.r, colorCount).r,
+            convergentColor.g,
+            paletteN(gradTs.b, colorCount).b
+        );
 
-        vec2 distortedSt = lensDistort(st, center, u_lensRadius, u_lensScale + dispersionOffset, idx);
+        vec3 finalColor = mix(convergentColor, dispersedColor, edgeMix * 2.0);
 
-        float edgeDist = length(distortedSt - center);
-        float pattern = sin(edgeDist * u_edgeDisp - u_time * u_speed * 2.0) * 0.5 + 0.5;
+        vec3 rainbow = (gradTs - gradTs.g) * 3.0;
+        finalColor += rainbow * edgeMix * u_edgeDisp;
 
-        pattern += (fi - 0.5) * 0.1;
-        pattern = clamp(pattern, 0.0, 1.0);
-
-        vec4 col = samplePalette(pattern);
-
-        float weight = 1.0 - abs(fi - 0.5) * 0.5;
-        accumColor += col * weight;
-        totalWeight += weight;
+        col += tint * finalColor * (3.0 / float(SAMPLES));
     }
 
-    vec4 finalColor = accumColor / totalWeight;
-
-    vec3 jitter = pcg3d(vec3(gl_FragCoord.xy, u_time)) - 0.5;
-    finalColor.rgb += jitter * (1.0 / 255.0);
-
-    fragColor = finalColor;
+    fragColor = vec4(col, 1.0);
 }`;
 
   function compile(type, src) {
@@ -387,9 +377,12 @@ void main() {
   startAnim();
   }
 
-  // Initialize both shader canvases
-  initShader('glcanvas', 1.0, 210.0);
-  initShader('glcanvas-cta', 0.5, 420.0); // Slower, different seed for variation
+  try {
+    initShader('glcanvas', 1.0, 210.0);
+    initShader('glcanvas-cta', 0.5, 420.0); // Slower, different seed for variation
+  } catch (err) {
+    console.warn('WebGL shader fallback:', err);
+  }
 })();
 
 // ── Services Floating Preview Follow Effect ──────────────────
