@@ -102,13 +102,12 @@
 .grid-line::after {
   content: '';
   position: absolute;
-  top: 0;
+  top: -150px;
   left: 0;
   width: 1px;
   height: 150px;
   background: linear-gradient(to bottom, transparent, #4598E5, transparent);
   animation: linePulse 10s infinite linear;
-  will-change: transform;
 }
 
 .grid-line--left {
@@ -125,10 +124,10 @@
 
 @keyframes linePulse {
   0% {
-    transform: translateY(-150px);
+    top: -150px;
   }
   100% {
-    transform: translateY(calc(100vh + 150px));
+    top: 100%;
   }
 }
 
@@ -854,15 +853,13 @@
   width: 100%;
   opacity: 0;
   pointer-events: none;
-  visibility: hidden;
-  transition: opacity var(--transition-slow), visibility var(--transition-slow);
+  transition: opacity var(--transition-slow);
 }
 
 .testimonial-slide[aria-hidden="false"] {
   opacity: 1;
   pointer-events: auto;
   position: relative;
-  visibility: visible;
 }
 
 /* --- Slide top: tag + quote --- */
@@ -1297,7 +1294,7 @@
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0.32px;
-  color: #B0B0B5;
+  color: #555555;
   text-decoration: none;
   white-space: nowrap;
   transition: color var(--transition-fast);
@@ -1467,12 +1464,12 @@
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
 .reveal.reveal--visible {
   opacity: 1;
   transform: translateY(0);
-  will-change: transform, opacity;
 }
 
 
@@ -1746,8 +1743,7 @@
   z-index: 10001;
   opacity: 0;
   pointer-events: none;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.3s ease;
   display: flex;
   flex-direction: column;
 }
@@ -1755,7 +1751,6 @@
 .mobile-menu.active {
   opacity: 1;
   pointer-events: auto;
-  visibility: visible;
 }
 
 .mobile-menu__inner {
@@ -1842,15 +1837,13 @@
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.3s ease;
   padding: 20px;
 }
 
 .modal.active {
   opacity: 1;
   pointer-events: auto;
-  visibility: visible;
 }
 
 .modal__backdrop {
