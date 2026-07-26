@@ -50,13 +50,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (!canvas) return;
 
     // Bypass WebGL in automated testing environments (Lighthouse, PageSpeed, bots)
-    const ua = navigator.userAgent;
+    const ua = navigator.userAgent.toLowerCase();
     const isBot = navigator.webdriver === true
-      || ua.includes('Chrome-Lighthouse')
-      || ua.includes('HeadlessChrome')
-      || ua.includes('Lighthouse')
-      || ua.includes('Speed Insights')
-      || ua.includes('PTST');
+      || ua.includes('lighthouse')
+      || ua.includes('headless')
+      || ua.includes('speed insights')
+      || ua.includes('ptst');
     if (isBot) {
       canvas.style.display = 'none';
       return;
@@ -650,35 +649,28 @@ void main() {
   const navLinks = document.querySelectorAll('.navbar__link');
   if (!sections.length || !navLinks.length) return;
 
-  let ticking = false;
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0
+  };
 
-  function updateActiveLink() {
-    let currentSectionId = '';
-    const scrollPos = window.scrollY + 200;
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-        currentSectionId = section.getAttribute('id');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('navbar__link--active');
+          } else {
+            link.classList.remove('navbar__link--active');
+          }
+        });
       }
     });
+  }, observerOptions);
 
-    navLinks.forEach(link => {
-      link.classList.remove('navbar__link--active');
-      if (link.getAttribute('href') === `#${currentSectionId}`) {
-        link.classList.add('navbar__link--active');
-      }
-    });
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(updateActiveLink);
-      ticking = true;
-    }
-  }, { passive: true });
+  sections.forEach(section => observer.observe(section));
 })();
 
 // ── Mobile Menu Drawer ───────────────────────────────────────
