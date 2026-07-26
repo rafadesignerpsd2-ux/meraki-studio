@@ -436,76 +436,92 @@ void main() {
 
 // ── Services Floating Preview Follow Effect ──────────────────
 (function () {
+  // Only activate on hover-capable (non-touch) devices
+  if (window.matchMedia('(hover: none)').matches) return;
+
   const servicesSection = document.getElementById('servicos');
   const preview = document.getElementById('services-preview');
   const previewTrack = document.getElementById('services-preview-track');
   const rows = document.querySelectorAll('.service-row');
   if (!servicesSection || !preview || !previewTrack || !rows.length) return;
 
-  // Track mouse coordinates
-  let mouseX = 0;
-  let mouseY = 0;
-  let targetX = 0;
-  let targetY = 0;
-  const speed = 0.15; // Smooth interpolation factor (lerp)
+  let mouseX = 0, mouseY = 0;
+  let targetX = 0, targetY = 0;
+  const speed = 0.15;
+  let isFollowing = false;
 
   function updatePosition() {
-    // Lerp coordinates for smooth follow lag
     mouseX += (targetX - mouseX) * speed;
     mouseY += (targetY - mouseY) * speed;
-
     preview.style.left = `${mouseX}px`;
     preview.style.top = `${mouseY}px`;
 
-    requestAnimationFrame(updatePosition);
+    if (isFollowing) {
+      requestAnimationFrame(updatePosition);
+    }
   }
-  requestAnimationFrame(updatePosition);
 
-  // Update target cursor coordinates
   window.addEventListener('mousemove', (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
   }, { passive: true });
 
-  // Shift slides on hover
   rows.forEach((row, index) => {
     row.addEventListener('mouseenter', () => {
-      // Shift track to corresponding image (200px item height)
       previewTrack.style.transform = `translateY(${-index * 200}px)`;
       preview.classList.add('active');
       preview.setAttribute('aria-hidden', 'false');
+      if (!isFollowing) {
+        isFollowing = true;
+        requestAnimationFrame(updatePosition);
+      }
     });
 
     row.addEventListener('mouseleave', () => {
       preview.classList.remove('active');
       preview.setAttribute('aria-hidden', 'true');
+      isFollowing = false;
     });
   });
 })();
 
 // ── Custom Contextual Cursor ─────────────────────────────────
 (function () {
+  // Only activate on hover-capable (non-touch) devices
+  if (window.matchMedia('(hover: none)').matches) return;
+
   const cursor = document.getElementById('custom-cursor');
   const label = document.getElementById('custom-cursor-label');
   if (!cursor || !label) return;
 
   let targetX = 0, targetY = 0;
   let currentX = 0, currentY = 0;
-  const lerpFactor = 0.2; // Smooth follow speed
-
-  window.addEventListener('mousemove', (e) => {
-    targetX = e.clientX;
-    targetY = e.clientY;
-  }, { passive: true });
+  const lerpFactor = 0.2;
+  let isMoving = false;
+  let idleTimer = null;
 
   function updateCursor() {
     currentX += (targetX - currentX) * lerpFactor;
     currentY += (targetY - currentY) * lerpFactor;
     cursor.style.left = `${currentX}px`;
     cursor.style.top = `${currentY}px`;
-    requestAnimationFrame(updateCursor);
+
+    // Stop loop when cursor has settled (distance < 0.5px)
+    if (Math.abs(targetX - currentX) > 0.5 || Math.abs(targetY - currentY) > 0.5) {
+      requestAnimationFrame(updateCursor);
+    } else {
+      isMoving = false;
+    }
   }
-  requestAnimationFrame(updateCursor);
+
+  window.addEventListener('mousemove', (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+    if (!isMoving) {
+      isMoving = true;
+      requestAnimationFrame(updateCursor);
+    }
+  }, { passive: true });
 
   // View tag on projects
   document.querySelectorAll('.project-card').forEach(card => {
@@ -519,7 +535,7 @@ void main() {
     });
   });
 
-  // Scale on hover for interactive elements (grows more on buttons)
+  // Scale on hover for interactive elements
   const hoverables = document.querySelectorAll('a, button, .service-row, .testimonials__nav-btn');
   hoverables.forEach(el => {
     el.addEventListener('mouseenter', () => {
