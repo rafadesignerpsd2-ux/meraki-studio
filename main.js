@@ -562,7 +562,9 @@ void main() {
 // ── Lenis Smooth Scroll Initialization ────────────────────────
 (function () {
   let lenis = null;
-  if (typeof Lenis !== 'undefined') {
+  const isMobileOrTouch = window.matchMedia('(hover: none)').matches || window.innerWidth < 768;
+
+  if (typeof Lenis !== 'undefined' && !isMobileOrTouch) {
     lenis = new Lenis({
       duration: 1.4, // Increased scroll weight slightly
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth easeOutExpo
@@ -572,8 +574,10 @@ void main() {
     });
 
     function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+      if (lenis) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
     }
     requestAnimationFrame(raf);
   }
