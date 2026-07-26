@@ -472,7 +472,7 @@
 }
 
 .projects__subtitle {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 18px;
   font-weight: 400;
   line-height: 27px;
@@ -513,7 +513,7 @@
 }
 
 .project-card__mockup-label {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 400;
   line-height: 19.5px;
@@ -889,7 +889,7 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
-  color: #858585;
+  color: #A5A5A5;
   letter-spacing: 0.24px;
 }
 
@@ -1307,7 +1307,7 @@
 }
 
 .footer__terms-link--inter {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   line-height: 21px;
   letter-spacing: 0;
@@ -1327,7 +1327,7 @@
 }
 
 .footer__bottom-text {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 400;
   line-height: 19.5px;
@@ -1749,7 +1749,8 @@
   z-index: 10001;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   display: flex;
   flex-direction: column;
 }
@@ -1757,6 +1758,7 @@
 .mobile-menu.active {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
 }
 
 .mobile-menu__inner {
@@ -1843,13 +1845,15 @@
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   padding: 20px;
 }
 
 .modal.active {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
 }
 
 .modal__backdrop {
