@@ -17,6 +17,12 @@
   will-change: transform;
 }
 
+@media (hover: none), (max-width: 768px) {
+  .noise-overlay {
+    animation: none;
+  }
+}
+
 @keyframes noisePlay {
   0%, 100% { transform: translate(0, 0); }
   10% { transform: translate(-1%, -1%); }

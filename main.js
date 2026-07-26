@@ -58,6 +58,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       || ua.includes('ptst');
     if (isBot) {
       canvas.style.display = 'none';
+      const noise = document.querySelector('.noise-overlay');
+      if (noise) noise.style.animation = 'none';
       return;
     }
 
