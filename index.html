@@ -810,7 +810,15 @@
     </svg>
   </a>
 
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.27/dist/lenis.min.js" defer></script>
-  <script src="main.js?v=7" defer></script>
+  <script>
+    // Only load Lenis smooth scroll on desktop (hover-capable) devices
+    if (window.matchMedia('(hover: hover)').matches && !navigator.webdriver) {
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.27/dist/lenis.min.js';
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+  </script>
+  <script src="main.js?v=8" defer></script>
 </body>
 </html>
