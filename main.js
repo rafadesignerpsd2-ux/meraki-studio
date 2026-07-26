@@ -319,15 +319,27 @@ void main() {
     flatColors[i*4] = r; flatColors[i*4+1] = g; flatColors[i*4+2] = b; flatColors[i*4+3] = 1.0;
   });
 
+  let lastWidth = 0;
+  let lastHeight = 0;
+
   function resize() {
-    // Capping DPR at 1.0 for background canvas to avoid layout blocking and GPU bottleneck
-    const dpr = 1.0;
-    canvas.width = canvas.clientWidth * dpr;
-    canvas.height = canvas.clientHeight * dpr;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const w = canvas.clientWidth || (canvas.parentElement ? canvas.parentElement.clientWidth : 0) || window.innerWidth;
+    const h = canvas.clientHeight || (canvas.parentElement ? canvas.parentElement.clientHeight : 0) || window.innerHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
     gl.viewport(0, 0, canvas.width, canvas.height);
+    lastWidth = canvas.clientWidth;
+    lastHeight = canvas.clientHeight;
   }
+
   window.addEventListener('resize', resize, { passive: true });
-  resize();
+  if (document.readyState === 'complete') {
+    resize();
+  } else {
+    window.addEventListener('load', resize, { passive: true });
+    resize();
+  }
 
   const start = performance.now();
   let isVisible = true;
@@ -341,6 +353,10 @@ void main() {
     if (!isVisible || document.hidden || isThrottled) {
       animId = null;
       return;
+    }
+
+    if (canvas.clientWidth !== lastWidth || canvas.clientHeight !== lastHeight) {
+      resize();
     }
 
     const now = performance.now();
